@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "420939199161",
+    "project_id": "place-95b4a",
+    "storage_bucket": "place-95b4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420939199161:android:44cc84752bd4861e9c2168",
+        "android_client_info": {
+          "package_name": "com.iffadiqbal.place"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420939199161-nq9h8r16od5s9urb7p5fc9f33fa38t47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMAoIsX_9XMLMQ1yYBUMhR4qrIhuLGLlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420939199161-nq9h8r16od5s9urb7p5fc9f33fa38t47.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "420939199161-ir7qra52ooqe9l94kvciginrm4gik1db.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iffadiqbal.place"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
