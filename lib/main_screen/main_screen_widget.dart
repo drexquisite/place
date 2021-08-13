@@ -1,10 +1,7 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../my_profile/my_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -73,15 +70,11 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                   padding: EdgeInsets.fromLTRB(0, 200, 0, 20),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      final usersUpdateData =
-                                          createUsersRecordData();
-                                      await currentUserReference
-                                          .update(usersUpdateData);
                                       await Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => NavBarPage(
-                                              initialPage: 'myTasks'),
+                                          builder: (context) =>
+                                              MyProfileWidget(),
                                         ),
                                       );
                                     },

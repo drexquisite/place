@@ -1,10 +1,10 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../completed_tasks/completed_tasks_widget.dart';
 import '../components/create_task_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -227,8 +227,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                       duration: Duration(milliseconds: 250),
                                       reverseDuration:
                                           Duration(milliseconds: 250),
-                                      child: NavBarPage(
-                                          initialPage: 'CompletedTasks'),
+                                      child: CompletedTasksWidget(),
                                     ),
                                   );
                                   final toDoListUpdateData =
