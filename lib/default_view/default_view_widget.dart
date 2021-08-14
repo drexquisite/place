@@ -286,8 +286,8 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                                 size: 30,
                                               ),
                                               options: FFButtonOptions(
-                                                width: 40,
-                                                height: 40,
+                                                width: 45,
+                                                height: 35,
                                                 color: Color(0x00FFFFFF),
                                                 textStyle: FlutterFlowTheme
                                                     .subtitle2
