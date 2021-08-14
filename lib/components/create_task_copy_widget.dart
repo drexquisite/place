@@ -1,9 +1,6 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -250,16 +247,8 @@ class _CreateTaskCopyWidgetState extends State<CreateTaskCopyWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () async {
-                      final toDoListCreateData = createToDoListRecordData(
-                        toDoName: textController1.text,
-                        toDoDescription: textController2.text,
-                        toDoDate: datePicked,
-                      );
-                      await ToDoListRecord.collection
-                          .doc()
-                          .set(toDoListCreateData);
-                      Navigator.pop(context);
+                    onPressed: () {
+                      print('Button pressed ...');
                     },
                     text: 'Create Task',
                     options: FFButtonOptions(

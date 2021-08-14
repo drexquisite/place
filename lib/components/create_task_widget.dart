@@ -1,9 +1,6 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -20,7 +17,6 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
   DateTime datePicked = DateTime.now();
   TextEditingController textController1;
   TextEditingController textController2;
-  ToDoListRecord NewRecord;
 
   @override
   void initState() {
@@ -221,20 +217,8 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () async {
-                      final toDoListCreateData = createToDoListRecordData(
-                        toDoName: textController1.text,
-                        toDoDescription: textController2.text,
-                        toDoDate: datePicked,
-                      );
-                      final toDoListRecordReference =
-                          ToDoListRecord.collection.doc();
-                      await toDoListRecordReference.set(toDoListCreateData);
-                      NewRecord = ToDoListRecord.getDocumentFromData(
-                          toDoListCreateData, toDoListRecordReference);
-                      Navigator.pop(context);
-
-                      setState(() {});
+                    onPressed: () {
+                      print('Button pressed ...');
                     },
                     text: 'Create Task',
                     options: FFButtonOptions(

@@ -1,7 +1,6 @@
 import 'package:built_value/standard_json_plugin.dart';
 
 import 'users_record.dart';
-import 'to_do_list_record.dart';
 import 'ren_houses_record.dart';
 import 'ten_houses_record.dart';
 
@@ -15,7 +14,6 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 
 @SerializersFor(const [
   UsersRecord,
-  ToDoListRecord,
   RenHousesRecord,
   TenHousesRecord,
 ])

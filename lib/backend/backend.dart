@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
-import 'schema/to_do_list_record.dart';
 import 'schema/ren_houses_record.dart';
 import 'schema/ten_houses_record.dart';
 import 'schema/serializers.dart';
@@ -15,7 +14,6 @@ export 'schema/index.dart';
 export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
-export 'schema/to_do_list_record.dart';
 export 'schema/ren_houses_record.dart';
 export 'schema/ten_houses_record.dart';
 
@@ -24,13 +22,6 @@ Stream<List<UsersRecord>> queryUsersRecord(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(UsersRecord.collection, UsersRecord.serializer,
-        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
-
-Stream<List<ToDoListRecord>> queryToDoListRecord(
-        {Query Function(Query) queryBuilder,
-        int limit = -1,
-        bool singleRecord = false}) =>
-    queryCollection(ToDoListRecord.collection, ToDoListRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<RenHousesRecord>> queryRenHousesRecord(
