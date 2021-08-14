@@ -214,7 +214,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                   elevation: 1,
                                   child: Container(
                                     width: 100,
-                                    height: 285,
+                                    height: 290,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -231,57 +231,66 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               height: 210,
                                               fit: BoxFit.cover,
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  310, 0, 0, 0),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                                icon: Icon(
-                                                  Icons.favorite_border,
-                                                  color: Color(0xFF8E55DE),
-                                                  size: 25,
+                                            Align(
+                                              alignment: Alignment(0, 0),
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    310, 0, 0, 0),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                  icon: Icon(
+                                                    Icons.favorite_border,
+                                                    color: Color(0xFF8E55DE),
+                                                    size: 25,
+                                                  ),
+                                                  iconSize: 25,
                                                 ),
-                                                iconSize: 25,
                                               ),
                                             ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.fromLTRB(
-                                                      10, 10, 0, 0),
-                                                  child: Text(
-                                                    'Posted By:',
-                                                    style: FlutterFlowTheme
-                                                        .bodyText1
-                                                        .override(
-                                                      fontFamily: 'Lato',
-                                                      color: Color(0xFF8E55DE),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment: Alignment(0, 0),
-                                                  child: Padding(
+                                            Align(
+                                              alignment: Alignment(0, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
                                                     padding:
                                                         EdgeInsets.fromLTRB(
-                                                            4, 10, 0, 0),
+                                                            10, 10, 0, 0),
                                                     child: Text(
-                                                      cardUsersRecord.fullName,
+                                                      'Posted By:',
                                                       style: FlutterFlowTheme
                                                           .bodyText1
                                                           .override(
                                                         fontFamily: 'Lato',
                                                         color:
-                                                            Color(0xFF333333),
+                                                            Color(0xFF8E55DE),
                                                       ),
                                                     ),
                                                   ),
-                                                )
-                                              ],
+                                                  Align(
+                                                    alignment: Alignment(0, 0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.fromLTRB(
+                                                              4, 10, 0, 0),
+                                                      child: Text(
+                                                        cardUsersRecord
+                                                            .fullName,
+                                                        style: FlutterFlowTheme
+                                                            .bodyText1
+                                                            .override(
+                                                          fontFamily: 'Lato',
+                                                          color:
+                                                              Color(0xFF333333),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                             )
                                           ],
                                         )
