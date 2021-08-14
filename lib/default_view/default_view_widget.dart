@@ -233,7 +233,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  100, 0, 0, 0),
+                                                  310, 0, 0, 0),
                                               child: IconButton(
                                                 onPressed: () {
                                                   print(
