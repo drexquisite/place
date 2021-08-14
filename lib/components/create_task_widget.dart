@@ -14,7 +14,7 @@ class CreateTaskWidget extends StatefulWidget {
 }
 
 class _CreateTaskWidgetState extends State<CreateTaskWidget> {
-  DateTime datePicked = DateTime.now();
+  DateTime datePicked;
   TextEditingController textController1;
   TextEditingController textController2;
 

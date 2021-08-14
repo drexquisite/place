@@ -215,7 +215,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                   elevation: 1,
                                   child: Container(
                                     width: 100,
-                                    height: 280,
+                                    height: 285,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -231,6 +231,41 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               width: double.infinity,
                                               height: 210,
                                               fit: BoxFit.cover,
+                                            ),
+                                            Align(
+                                              alignment: Alignment(0, 0),
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    285, 4, 0, 0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () {
+                                                    print('Button pressed ...');
+                                                  },
+                                                  text: '',
+                                                  icon: Icon(
+                                                    Icons.favorite_border,
+                                                    color: Color(0xFF9F68E4),
+                                                    size: 32,
+                                                  ),
+                                                  options: FFButtonOptions(
+                                                    width: 45,
+                                                    height: 35,
+                                                    color: Color(0x00FFFFFF),
+                                                    textStyle: FlutterFlowTheme
+                                                        .subtitle2
+                                                        .override(
+                                                      fontFamily: 'Lato',
+                                                      color: Colors.white,
+                                                    ),
+                                                    elevation: 0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1,
+                                                    ),
+                                                    borderRadius: 12,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -269,41 +304,6 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               ],
                                             )
                                           ],
-                                        ),
-                                        Align(
-                                          alignment: Alignment(0, 0),
-                                          child: Padding(
-                                            padding: EdgeInsets.fromLTRB(
-                                                285, 0, 10, 0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: '',
-                                              icon: Icon(
-                                                Icons.favorite_border,
-                                                color: Color(0xFF9F68E4),
-                                                size: 30,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: 45,
-                                                height: 35,
-                                                color: Color(0x00FFFFFF),
-                                                textStyle: FlutterFlowTheme
-                                                    .subtitle2
-                                                    .override(
-                                                  fontFamily: 'Lato',
-                                                  color: Colors.white,
-                                                ),
-                                                elevation: 0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
-                                                ),
-                                                borderRadius: 12,
-                                              ),
-                                            ),
-                                          ),
                                         )
                                       ],
                                     ),
