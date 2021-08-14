@@ -92,47 +92,12 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                       ),
                       child: Padding(
                         padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
-                        child: StreamBuilder<List<UsersRecord>>(
-                          stream: queryUsersRecord(
-                            queryBuilder: (usersRecord) => usersRecord.where(
-                                'FullName',
-                                isEqualTo: widget.displayName.fullName),
-                            singleRecord: true,
+                        child: Text(
+                          currentUserDisplayName,
+                          style: FlutterFlowTheme.subtitle1.override(
+                            fontFamily: 'Lato',
+                            color: FlutterFlowTheme.primaryBlack,
                           ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 15,
-                                  height: 15,
-                                  child: SpinKitWanderingCubes(
-                                    color: Color(0xFF9F68E4),
-                                    size: 15,
-                                  ),
-                                ),
-                              );
-                            }
-                            List<UsersRecord> textUsersRecordList =
-                                snapshot.data;
-                            // Customize what your widget looks like with no query results.
-                            if (snapshot.data.isEmpty) {
-                              return Container(
-                                height: 100,
-                                child: Center(
-                                  child: Text('No results.'),
-                                ),
-                              );
-                            }
-                            final textUsersRecord = textUsersRecordList.first;
-                            return Text(
-                              currentUserDisplayName,
-                              style: FlutterFlowTheme.subtitle1.override(
-                                fontFamily: 'Lato',
-                                color: FlutterFlowTheme.primaryBlack,
-                              ),
-                            );
-                          },
                         ),
                       ),
                     )
