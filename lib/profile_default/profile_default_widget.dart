@@ -21,7 +21,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFEFEFF1),
+      backgroundColor: Color(0xFFF7F7F9),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
