@@ -108,9 +108,9 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 200,
+                              blurRadius: 0,
                               color: Color(0x4E000000),
-                              offset: Offset(0, 4),
+                              offset: Offset(0, 0),
                             )
                           ],
                           borderRadius: BorderRadius.circular(25),
@@ -211,7 +211,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                 return Card(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   color: Color(0xFFF5F5F5),
-                                  elevation: 2,
+                                  elevation: 1,
                                   child: Container(
                                     width: 100,
                                     height: 275,
