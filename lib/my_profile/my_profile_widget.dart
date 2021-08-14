@@ -30,6 +30,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
   Widget build(BuildContext context) {
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
+        queryBuilder: (usersRecord) => usersRecord.where('display_name',
+            isEqualTo: currentUserDisplayName),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
