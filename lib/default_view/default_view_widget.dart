@@ -1,7 +1,6 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -232,39 +231,20 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               height: 210,
                                               fit: BoxFit.cover,
                                             ),
-                                            Align(
-                                              alignment: Alignment(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    285, 4, 0, 0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: '',
-                                                  icon: Icon(
-                                                    Icons.favorite_border,
-                                                    color: Color(0xFF9F68E4),
-                                                    size: 32,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 45,
-                                                    height: 35,
-                                                    color: Color(0x00FFFFFF),
-                                                    textStyle: FlutterFlowTheme
-                                                        .subtitle2
-                                                        .override(
-                                                      fontFamily: 'Lato',
-                                                      color: Colors.white,
-                                                    ),
-                                                    elevation: 0,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1,
-                                                    ),
-                                                    borderRadius: 12,
-                                                  ),
+                                            Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  300, 0, 0, 0),
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  print(
+                                                      'IconButton pressed ...');
+                                                },
+                                                icon: Icon(
+                                                  Icons.favorite_border,
+                                                  color: Color(0xFF8E55DE),
+                                                  size: 30,
                                                 ),
+                                                iconSize: 30,
                                               ),
                                             ),
                                             Row(
