@@ -116,7 +116,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(
                             color: Color(0xFFC3C0C0),
-                            width: 0.8,
+                            width: 0.5,
                           ),
                         ),
                         child: Padding(
