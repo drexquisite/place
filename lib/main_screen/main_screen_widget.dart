@@ -70,13 +70,12 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                   padding: EdgeInsets.fromLTRB(0, 200, 0, 20),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      await Navigator.pushAndRemoveUntil(
+                                      await Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
                                               MyProfileWidget(),
                                         ),
-                                        (r) => false,
                                       );
                                     },
                                     text: '',
