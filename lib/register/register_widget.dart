@@ -289,7 +289,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 }
 
                                 final usersCreateData = createUsersRecordData(
-                                  fullName: fullNameController.text,
+                                  displayName: fullNameController.text,
                                 );
                                 await UsersRecord.collection
                                     .doc(user.uid)
