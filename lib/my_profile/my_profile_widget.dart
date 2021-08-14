@@ -132,10 +132,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EditProfileWidget(
-                                  displayName: myProfileUsersRecord,
-                                  email: myProfileUsersRecord,
-                                ),
+                                builder: (context) => EditProfileWidget(),
                               ),
                             );
                           },
