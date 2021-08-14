@@ -1,13 +1,14 @@
 # place_app
 
-The first alpha dev builds for PLACE APP.
-Developed and maintained by
-IFFAD IQBAL /  iffadiqabalgmail.com
-Sole Owner & Creator
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
 
 ### IMPORTANT:
 
-This project has Firestore integration, so you must first run the following commands to ensure the project compiles:
+For projects with Firestore integration, you must first run the following commands to ensure the project compiles:
 
 ```
 flutter pub get
@@ -18,5 +19,13 @@ This command creates the generated files that parse each Record from Firestore i
 
 ### Getting started continued:
 
-The Offical Dev Build for PLACE (c) 
-was built on 08.14.2021
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

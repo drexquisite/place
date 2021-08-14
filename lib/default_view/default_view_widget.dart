@@ -242,9 +242,9 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                                 icon: Icon(
                                                   Icons.favorite_border,
                                                   color: Color(0xFF8E55DE),
-                                                  size: 30,
+                                                  size: 25,
                                                 ),
-                                                iconSize: 30,
+                                                iconSize: 25,
                                               ),
                                             ),
                                             Row(
