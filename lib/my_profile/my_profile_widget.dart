@@ -94,6 +94,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                         child: StreamBuilder<List<UsersRecord>>(
                           stream: queryUsersRecord(
+                            queryBuilder: (usersRecord) => usersRecord.where(
+                                'FullName',
+                                isEqualTo: widget.displayName.fullName),
                             singleRecord: true,
                           ),
                           builder: (context, snapshot) {
