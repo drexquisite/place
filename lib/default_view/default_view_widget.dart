@@ -247,7 +247,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               alignment: Alignment(0, 0),
                                               child: Padding(
                                                 padding: EdgeInsets.fromLTRB(
-                                                    15, 10, 0, 0),
+                                                    4, 10, 0, 0),
                                                 child: Text(
                                                   cardUsersRecord.fullName,
                                                   style: FlutterFlowTheme
