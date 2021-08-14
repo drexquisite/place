@@ -215,7 +215,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                   elevation: 1,
                                   child: Container(
                                     width: 100,
-                                    height: 275,
+                                    height: 280,
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -229,7 +229,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               listViewHousePostsRecord
                                                   .housePost,
                                               width: double.infinity,
-                                              height: 200,
+                                              height: 210,
                                               fit: BoxFit.cover,
                                             ),
                                             Row(
@@ -274,7 +274,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                           alignment: Alignment(0, 0),
                                           child: Padding(
                                             padding: EdgeInsets.fromLTRB(
-                                                290, 0, 0, 0),
+                                                285, 0, 10, 0),
                                             child: FFButtonWidget(
                                               onPressed: () {
                                                 print('Button pressed ...');
