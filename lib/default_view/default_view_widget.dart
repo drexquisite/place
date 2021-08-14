@@ -231,22 +231,6 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                               height: 210,
                                               fit: BoxFit.cover,
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  300, 0, 0, 0),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                                icon: Icon(
-                                                  Icons.favorite_border,
-                                                  color: Color(0xFF8E55DE),
-                                                  size: 30,
-                                                ),
-                                                iconSize: 30,
-                                              ),
-                                            ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -279,6 +263,22 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                                             Color(0xFF333333),
                                                       ),
                                                     ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      20, 0, 0, 0),
+                                                  child: IconButton(
+                                                    onPressed: () {
+                                                      print(
+                                                          'IconButton pressed ...');
+                                                    },
+                                                    icon: Icon(
+                                                      Icons.favorite_border,
+                                                      color: Color(0xFF8E55DE),
+                                                      size: 30,
+                                                    ),
+                                                    iconSize: 30,
                                                   ),
                                                 )
                                               ],
