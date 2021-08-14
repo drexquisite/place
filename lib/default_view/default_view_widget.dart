@@ -103,7 +103,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                       padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.95,
-                        height: 50,
+                        height: 35,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -116,7 +116,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(
                             color: Color(0xFFC3C0C0),
-                            width: 2,
+                            width: 0.8,
                           ),
                         ),
                         child: Padding(
@@ -137,8 +137,8 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                   alignment: Alignment(0.95, 0),
                                   child: Icon(
                                     Icons.tune_rounded,
-                                    color: Color(0xFF95A1AC),
-                                    size: 24,
+                                    color: Color(0xFFB3B7C2),
+                                    size: 20,
                                   ),
                                 ),
                               )
@@ -150,7 +150,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                  padding: EdgeInsets.fromLTRB(0, 70, 0, 0),
                   child: StreamBuilder<List<HousePostsRecord>>(
                     stream: queryHousePostsRecord(
                       queryBuilder: (housePostsRecord) => housePostsRecord
