@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../my_profile/my_profile_widget.dart';
+import '../main.dart';
 import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -17,18 +17,18 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController emailTextController;
-  TextEditingController passwordTextController;
-  bool passwordVisibility;
+  TextEditingController emailFieldLoginController;
+  TextEditingController passwordFieldLoginController;
+  bool passwordFieldLoginVisibility;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
-    passwordTextController = TextEditingController();
-    passwordVisibility = false;
+    emailFieldLoginController = TextEditingController();
+    passwordFieldLoginController = TextEditingController();
+    passwordFieldLoginVisibility = false;
   }
 
   @override
@@ -80,7 +80,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             TextFormField(
-                              controller: emailTextController,
+                              controller: emailFieldLoginController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Email Address',
@@ -130,8 +130,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             Padding(
                               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                               child: TextFormField(
-                                controller: passwordTextController,
-                                obscureText: !passwordVisibility,
+                                controller: passwordFieldLoginController,
+                                obscureText: !passwordFieldLoginVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'Password',
                                   labelStyle:
@@ -167,11 +167,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   suffixIcon: InkWell(
                                     onTap: () => setState(
-                                      () => passwordVisibility =
-                                          !passwordVisibility,
+                                      () => passwordFieldLoginVisibility =
+                                          !passwordFieldLoginVisibility,
                                     ),
                                     child: Icon(
-                                      passwordVisibility
+                                      passwordFieldLoginVisibility
                                           ? Icons.visibility_outlined
                                           : Icons.visibility_off_outlined,
                                       color: Color(0x80FFFFFF),
@@ -201,8 +201,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   }
                                   final user = await signInWithEmail(
                                     context,
-                                    emailTextController.text,
-                                    passwordTextController.text,
+                                    emailFieldLoginController.text,
+                                    passwordFieldLoginController.text,
                                   );
                                   if (user == null) {
                                     return;
@@ -211,7 +211,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MyProfileWidget(),
+                                      builder: (context) => NavBarPage(
+                                          initialPage: 'ProfileDefault'),
                                     ),
                                   );
                                 },

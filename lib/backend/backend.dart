@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/users_record.dart';
 import 'schema/ren_houses_record.dart';
 import 'schema/ten_houses_record.dart';
+import 'schema/user_type_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +17,7 @@ export 'schema/serializers.dart';
 export 'schema/users_record.dart';
 export 'schema/ren_houses_record.dart';
 export 'schema/ten_houses_record.dart';
+export 'schema/user_type_record.dart';
 
 Stream<List<UsersRecord>> queryUsersRecord(
         {Query Function(Query) queryBuilder,
@@ -36,6 +38,13 @@ Stream<List<TenHousesRecord>> queryTenHousesRecord(
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(TenHousesRecord.collection, TenHousesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Stream<List<UserTypeRecord>> queryUserTypeRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(UserTypeRecord.collection, UserTypeRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(

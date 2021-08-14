@@ -21,5 +21,11 @@ service cloud.firestore {
     match /TenHouses/{id} {
       allow read, write: if true;
     }
+
+    // WARNING! ONLY FOR TEST MODE: Make sure you properly configure the
+    // security rules for this collection before publishing your app.
+    match /UserType/{id} {
+      allow read, write: if true;
+    }
   }
 }

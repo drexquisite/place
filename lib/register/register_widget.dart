@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
-import '../my_profile/my_profile_widget.dart';
+import '../selection_screen/selection_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,23 +18,23 @@ class RegisterWidget extends StatefulWidget {
 }
 
 class _RegisterWidgetState extends State<RegisterWidget> {
-  TextEditingController confirmPassController;
-  bool confirmPassVisibility;
-  TextEditingController emailController;
-  TextEditingController fullNameController;
-  TextEditingController passOneController;
-  bool passOneVisibility;
+  TextEditingController confirmPasswordFieldRegisterController;
+  bool confirmPasswordFieldRegisterVisibility;
+  TextEditingController emailFieldRegisterController;
+  TextEditingController fullNameFieldRegisterController;
+  TextEditingController passwordFieldRegisterController;
+  bool passwordFieldRegisterVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    confirmPassController = TextEditingController();
-    confirmPassVisibility = false;
-    emailController = TextEditingController();
-    fullNameController = TextEditingController();
-    passOneController = TextEditingController();
-    passOneVisibility = false;
+    confirmPasswordFieldRegisterController = TextEditingController();
+    confirmPasswordFieldRegisterVisibility = false;
+    emailFieldRegisterController = TextEditingController();
+    fullNameFieldRegisterController = TextEditingController();
+    passwordFieldRegisterController = TextEditingController();
+    passwordFieldRegisterVisibility = false;
   }
 
   @override
@@ -83,7 +83,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           TextFormField(
-                            controller: fullNameController,
+                            controller: fullNameFieldRegisterController,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Full Name',
@@ -122,7 +122,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                             child: TextFormField(
-                              controller: emailController,
+                              controller: emailFieldRegisterController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Email Address',
@@ -162,8 +162,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                             child: TextFormField(
-                              controller: passOneController,
-                              obscureText: !passOneVisibility,
+                              controller: passwordFieldRegisterController,
+                              obscureText: !passwordFieldRegisterVisibility,
                               decoration: InputDecoration(
                                 labelText: 'Password',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
@@ -193,11 +193,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 fillColor: Color(0xFF9F68E4),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
-                                    () =>
-                                        passOneVisibility = !passOneVisibility,
+                                    () => passwordFieldRegisterVisibility =
+                                        !passwordFieldRegisterVisibility,
                                   ),
                                   child: Icon(
-                                    passOneVisibility
+                                    passwordFieldRegisterVisibility
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0x80FFFFFF),
@@ -214,8 +214,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                             child: TextFormField(
-                              controller: confirmPassController,
-                              obscureText: !confirmPassVisibility,
+                              controller:
+                                  confirmPasswordFieldRegisterController,
+                              obscureText:
+                                  !confirmPasswordFieldRegisterVisibility,
                               decoration: InputDecoration(
                                 labelText: 'Confirm Password',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
@@ -245,11 +247,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 fillColor: Color(0xFF9F68E4),
                                 suffixIcon: InkWell(
                                   onTap: () => setState(
-                                    () => confirmPassVisibility =
-                                        !confirmPassVisibility,
+                                    () => confirmPasswordFieldRegisterVisibility =
+                                        !confirmPasswordFieldRegisterVisibility,
                                   ),
                                   child: Icon(
-                                    confirmPassVisibility
+                                    confirmPasswordFieldRegisterVisibility
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0x80FFFFFF),
@@ -267,8 +269,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (passOneController.text !=
-                                    confirmPassController.text) {
+                                if (passwordFieldRegisterController.text !=
+                                    confirmPasswordFieldRegisterController
+                                        .text) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
@@ -281,15 +284,16 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                                 final user = await createAccountWithEmail(
                                   context,
-                                  emailController.text,
-                                  passOneController.text,
+                                  emailFieldRegisterController.text,
+                                  passwordFieldRegisterController.text,
                                 );
                                 if (user == null) {
                                   return;
                                 }
 
                                 final usersCreateData = createUsersRecordData(
-                                  displayName: fullNameController.text,
+                                  fullName:
+                                      fullNameFieldRegisterController.text,
                                 );
                                 await UsersRecord.collection
                                     .doc(user.uid)
@@ -298,7 +302,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => MyProfileWidget(),
+                                    builder: (context) =>
+                                        SelectionScreenWidget(),
                                   ),
                                 );
                               },

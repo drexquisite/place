@@ -1,7 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../my_profile/my_profile_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -73,19 +73,19 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                       await Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              MyProfileWidget(),
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'ProfileDefault'),
                                         ),
                                       );
                                     },
                                     text: '',
                                     icon: Icon(
                                       Icons.home,
-                                      size: 15,
+                                      size: 35,
                                     ),
                                     options: FFButtonOptions(
                                       width: 100,
-                                      height: 100,
+                                      height: 90,
                                       color: Color(0xFF8E55DE),
                                       textStyle:
                                           FlutterFlowTheme.subtitle2.override(
@@ -96,9 +96,9 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                       elevation: 10,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 80,
+                                        width: 35,
                                       ),
-                                      borderRadius: 80,
+                                      borderRadius: 25,
                                     ),
                                   ),
                                 ),
