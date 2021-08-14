@@ -42,10 +42,10 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           Text(
                             'Hello',
                             style: FlutterFlowTheme.title1.override(
-                              fontFamily: 'Lexend Deca',
+                              fontFamily: 'Lato',
                               color: Color(0xFF090F13),
                               fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           Padding(
@@ -53,10 +53,10 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                             child: Text(
                               '[Name]',
                               style: FlutterFlowTheme.title1.override(
-                                fontFamily: 'Lexend Deca',
+                                fontFamily: 'Lato',
                                 color: Color(0xFF8E55DE),
                                 fontSize: 24,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.normal,
                               ),
                             ),
                           )
@@ -70,7 +70,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                             child: Text(
                               'Browse home listings below...',
                               style: FlutterFlowTheme.bodyText2.override(
-                                fontFamily: 'Lexend Deca',
+                                fontFamily: 'Lato',
                                 color: Color(0xFF9F68E4),
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
