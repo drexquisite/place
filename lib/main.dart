@@ -4,6 +4,7 @@ import 'auth/firebase_user_provider.dart';
 import 'package:place_app/splash_screen/splash_screen_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'selection_screen/selection_screen_widget.dart';
 import 'default_view/default_view_widget.dart';
 import 'profile_default/profile_default_widget.dart';
 
@@ -74,6 +75,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'SelectionScreen': SelectionScreenWidget(),
       'DefaultView': DefaultViewWidget(),
       'ProfileDefault': ProfileDefaultWidget(),
     };
@@ -84,13 +86,21 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.home,
+              color: Color(0xFF9E9E9E),
               size: 24,
             ),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.search_outlined,
+              size: 24,
+            ),
+            label: 'Main',
           ),
           BottomNavigationBarItem(
             icon: Icon(

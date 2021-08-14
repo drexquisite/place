@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
-import '../selection_screen/selection_screen_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -302,8 +302,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        SelectionScreenWidget(),
+                                    builder: (context) => NavBarPage(
+                                        initialPage: 'SelectionScreen'),
                                   ),
                                 );
                               },
