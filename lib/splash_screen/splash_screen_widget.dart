@@ -139,7 +139,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   style: FlutterFlowTheme.bodyText1.override(
                     fontFamily: 'Lato',
                     color: Color(0xFF8E55DE),
-                    fontSize: 8,
+                    fontSize: 11,
                   ),
                 ),
               )
