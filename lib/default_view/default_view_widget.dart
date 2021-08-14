@@ -211,7 +211,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                 return Card(
                                   clipBehavior: Clip.antiAliasWithSaveLayer,
                                   color: Color(0xFFF5F5F5),
-                                  elevation: 12,
+                                  elevation: 2,
                                   child: Container(
                                     width: 100,
                                     height: 275,
