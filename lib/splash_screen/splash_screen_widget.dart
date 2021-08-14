@@ -42,7 +42,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'PLACE \\n',
+                      'P L A C E \\n',
                       style: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Lato',
                         color: Colors.black,
