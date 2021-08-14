@@ -190,44 +190,82 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                               listViewHousePostsRecordList[listViewIndex];
                           return Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Card(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color: Color(0xFFF5F5F5),
-                              elevation: 12,
-                              child: Container(
-                                width: 100,
-                                height: 275,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Image.network(
-                                      listViewHousePostsRecord.housePost,
-                                      width: double.infinity,
-                                      height: 200,
-                                      fit: BoxFit.cover,
+                            child: StreamBuilder<UsersRecord>(
+                              stream: UsersRecord.getDocument(
+                                  listViewHousePostsRecord.user),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 15,
+                                      height: 15,
+                                      child: SpinKitWanderingCubes(
+                                        color: Color(0xFF9F68E4),
+                                        size: 15,
+                                      ),
                                     ),
-                                    Row(
+                                  );
+                                }
+                                final cardUsersRecord = snapshot.data;
+                                return Card(
+                                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                                  color: Color(0xFFF5F5F5),
+                                  elevation: 12,
+                                  child: Container(
+                                    width: 100,
+                                    height: 275,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsets.fromLTRB(15, 10, 0, 0),
-                                          child: Text(
-                                            'Bed Rooms: Two\\nLiving Rooms: Three\\nBath Rooms: 1',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lato',
-                                              color: Color(0xFF333333),
+                                        Image.network(
+                                          listViewHousePostsRecord.housePost,
+                                          width: double.infinity,
+                                          height: 200,
+                                          fit: BoxFit.cover,
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.fromLTRB(
+                                                  10, 10, 0, 0),
+                                              child: Text(
+                                                'Posted By:',
+                                                style: FlutterFlowTheme
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily: 'Lato',
+                                                  color: Color(0xFF8E55DE),
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                            Align(
+                                              alignment: Alignment(0, 0),
+                                              child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    15, 10, 0, 0),
+                                                child: Text(
+                                                  cardUsersRecord.fullName,
+                                                  style: FlutterFlowTheme
+                                                      .bodyText1
+                                                      .override(
+                                                    fontFamily: 'Lato',
+                                                    color: Color(0xFF333333),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
                                         )
                                       ],
-                                    )
-                                  ],
-                                ),
-                              ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           );
                         },
