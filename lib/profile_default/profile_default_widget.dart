@@ -95,7 +95,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                             child: Text(
-                              'Lookin to Rent',
+                              'Looking to Rent',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lato',
                                 color: Color(0xFF8E55DE),
