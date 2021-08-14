@@ -51,7 +51,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
                             child: Text(
-                              '[Name]',
+                              'Iffad I',
                               style: FlutterFlowTheme.title1.override(
                                 fontFamily: 'Lato',
                                 color: Color(0xFF8E55DE),

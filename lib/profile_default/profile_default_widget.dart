@@ -21,7 +21,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF1F4F8),
+      backgroundColor: Color(0xFFEFEFF1),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +53,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.asset(
-                                'assets/images/UI_avatar@2x.png',
+                                'assets/images/lllllll.jpg',
                               ),
                             ),
                           ),
@@ -78,12 +78,12 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                             child: Text(
-                              '[User Name Here]',
+                              'Iffad Iqbal',
                               style: FlutterFlowTheme.title1.override(
-                                fontFamily: 'Lexend Deca',
+                                fontFamily: 'Lato',
                                 color: Color(0xFF090F13),
                                 fontSize: 24,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           )
@@ -95,10 +95,10 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                             child: Text(
-                              'User.name@domainname.com',
+                              'Lookin to Rent',
                               style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFFEE8B60),
+                                fontFamily: 'Lato',
+                                color: Color(0xFF8E55DE),
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -123,10 +123,10 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                     child: Text(
                       'Account Settings',
                       style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
+                        fontFamily: 'Lato',
                         color: Color(0xFF090F13),
                         fontSize: 14,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   )
@@ -155,9 +155,9 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
                             child: Text(
-                              'Order History',
+                              'Past House Posts',
                               style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
+                                fontFamily: 'Lato',
                                 color: Color(0xFF090F13),
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
@@ -199,7 +199,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               child: Text(
                                 'Settings',
                                 style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
+                                  fontFamily: 'Lato',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
@@ -242,7 +242,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               child: Text(
                                 'Notifications',
                                 style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
+                                  fontFamily: 'Lato',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
@@ -285,7 +285,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               child: Text(
                                 'Change Password',
                                 style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
+                                  fontFamily: 'Lato',
                                   color: Color(0xFF090F13),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
@@ -326,16 +326,16 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                         },
                         text: 'Log Out',
                         options: FFButtonOptions(
-                          width: 90,
+                          width: 120,
                           height: 40,
                           color: Colors.white,
                           textStyle: FlutterFlowTheme.bodyText2.override(
-                            fontFamily: 'Lexend Deca',
+                            fontFamily: 'Lato',
                             color: Color(0xFF4B39EF),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
                           ),
-                          elevation: 3,
+                          elevation: 2,
                           borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1,
