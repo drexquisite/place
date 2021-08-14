@@ -211,7 +211,7 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.normal,
                               ),
-                              elevation: 3,
+                              elevation: 2,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 45,

@@ -1,6 +1,7 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -103,7 +104,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                       padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.95,
-                        height: 35,
+                        height: 27,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
@@ -218,48 +219,91 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                     decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
                                       children: [
-                                        Image.network(
-                                          listViewHousePostsRecord.housePost,
-                                          width: double.infinity,
-                                          height: 200,
-                                          fit: BoxFit.cover,
-                                        ),
-                                        Row(
+                                        Column(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(
-                                                  10, 10, 0, 0),
-                                              child: Text(
-                                                'Posted By:',
-                                                style: FlutterFlowTheme
-                                                    .bodyText1
-                                                    .override(
-                                                  fontFamily: 'Lato',
-                                                  color: Color(0xFF8E55DE),
-                                                ),
-                                              ),
+                                            Image.network(
+                                              listViewHousePostsRecord
+                                                  .housePost,
+                                              width: double.infinity,
+                                              height: 200,
+                                              fit: BoxFit.cover,
                                             ),
-                                            Align(
-                                              alignment: Alignment(0, 0),
-                                              child: Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    4, 10, 0, 0),
-                                                child: Text(
-                                                  cardUsersRecord.fullName,
-                                                  style: FlutterFlowTheme
-                                                      .bodyText1
-                                                      .override(
-                                                    fontFamily: 'Lato',
-                                                    color: Color(0xFF333333),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      10, 10, 0, 0),
+                                                  child: Text(
+                                                    'Posted By:',
+                                                    style: FlutterFlowTheme
+                                                        .bodyText1
+                                                        .override(
+                                                      fontFamily: 'Lato',
+                                                      color: Color(0xFF8E55DE),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
+                                                Align(
+                                                  alignment: Alignment(0, 0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.fromLTRB(
+                                                            4, 10, 0, 0),
+                                                    child: Text(
+                                                      cardUsersRecord.fullName,
+                                                      style: FlutterFlowTheme
+                                                          .bodyText1
+                                                          .override(
+                                                        fontFamily: 'Lato',
+                                                        color:
+                                                            Color(0xFF333333),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
                                             )
                                           ],
+                                        ),
+                                        Align(
+                                          alignment: Alignment(0, 0),
+                                          child: Padding(
+                                            padding: EdgeInsets.fromLTRB(
+                                                290, 0, 0, 0),
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: '',
+                                              icon: Icon(
+                                                Icons.favorite_border,
+                                                color: Color(0xFF9F68E4),
+                                                size: 30,
+                                              ),
+                                              options: FFButtonOptions(
+                                                width: 40,
+                                                height: 40,
+                                                color: Color(0x00FFFFFF),
+                                                textStyle: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Lato',
+                                                  color: Colors.white,
+                                                ),
+                                                elevation: 0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 12,
+                                              ),
+                                            ),
+                                          ),
                                         )
                                       ],
                                     ),
