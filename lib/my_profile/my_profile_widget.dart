@@ -123,7 +123,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                             }
                             final textUsersRecord = textUsersRecordList.first;
                             return Text(
-                              myProfileUsersRecord.fullName,
+                              currentUserDisplayName,
                               style: FlutterFlowTheme.subtitle1.override(
                                 fontFamily: 'Lato',
                                 color: FlutterFlowTheme.primaryBlack,

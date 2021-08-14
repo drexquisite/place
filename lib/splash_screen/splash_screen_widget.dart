@@ -88,7 +88,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     color: Colors.white,
                                     fontWeight: FontWeight.normal,
                                   ),
-                                  elevation: 3,
+                                  elevation: 5,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1,
@@ -117,7 +117,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                   color: Color(0xFF8E55DE),
                                   fontWeight: FontWeight.normal,
                                 ),
-                                elevation: 3,
+                                elevation: 5,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1,

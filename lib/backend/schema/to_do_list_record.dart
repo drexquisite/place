@@ -24,13 +24,45 @@ abstract class ToDoListRecord
   bool get toDoState;
 
   @nullable
+  String get email;
+
+  @nullable
+  @BuiltValueField(wireName: 'display_name')
+  String get displayName;
+
+  @nullable
+  @BuiltValueField(wireName: 'photo_url')
+  String get photoUrl;
+
+  @nullable
+  String get uid;
+
+  @nullable
+  @BuiltValueField(wireName: 'created_time')
+  DateTime get createdTime;
+
+  @nullable
+  @BuiltValueField(wireName: 'phone_number')
+  String get phoneNumber;
+
+  @nullable
+  @BuiltValueField(wireName: 'FullName')
+  String get fullName;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(ToDoListRecordBuilder builder) => builder
     ..toDoName = ''
     ..toDoDescription = ''
-    ..toDoState = false;
+    ..toDoState = false
+    ..email = ''
+    ..displayName = ''
+    ..photoUrl = ''
+    ..uid = ''
+    ..phoneNumber = ''
+    ..fullName = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('ToDoList');
@@ -54,6 +86,13 @@ Map<String, dynamic> createToDoListRecordData({
   String toDoName,
   String toDoDescription,
   bool toDoState,
+  String email,
+  String displayName,
+  String photoUrl,
+  String uid,
+  DateTime createdTime,
+  String phoneNumber,
+  String fullName,
 }) =>
     serializers.toFirestore(
         ToDoListRecord.serializer,
@@ -61,4 +100,11 @@ Map<String, dynamic> createToDoListRecordData({
           ..toDoDate = toDoDate
           ..toDoName = toDoName
           ..toDoDescription = toDoDescription
-          ..toDoState = toDoState));
+          ..toDoState = toDoState
+          ..email = email
+          ..displayName = displayName
+          ..photoUrl = photoUrl
+          ..uid = uid
+          ..createdTime = createdTime
+          ..phoneNumber = phoneNumber
+          ..fullName = fullName));
