@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
 import 'package:place_app/splash_screen/splash_screen_widget.dart';
-import 'package:place_app/main_screen/main_screen_widget.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'default_view/default_view_widget.dart';
+import 'profile_default/profile_default_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,8 +46,76 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? MainScreenWidget()
+              ? NavBarPage()
               : SplashScreenWidget(),
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key key, this.initialPage}) : super(key: key);
+
+  final String initialPage;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPage = 'MainScreen';
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = widget.initialPage ?? _currentPage;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'DefaultView': DefaultViewWidget(),
+      'ProfileDefault': ProfileDefaultWidget(),
+    };
+    return Scaffold(
+      body: tabs[_currentPage],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.search_outlined,
+              size: 24,
+            ),
+            label: 'Main',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outlined,
+              size: 35,
+            ),
+            activeIcon: Icon(
+              Icons.person,
+              size: 35,
+            ),
+            label: 'ProfilePage',
+          )
+        ],
+        backgroundColor: Colors.white,
+        currentIndex: tabs.keys.toList().indexOf(_currentPage),
+        selectedItemColor: Color(0xFF8E55DE),
+        unselectedItemColor: FlutterFlowTheme.tertiaryColor,
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        // Temporary fix for https://github.com/flutter/flutter/issues/84556
+        selectedLabelStyle: const TextStyle(fontSize: 0.001),
+        unselectedLabelStyle: const TextStyle(fontSize: 0.001),
+        type: BottomNavigationBarType.fixed,
+      ),
     );
   }
 }
