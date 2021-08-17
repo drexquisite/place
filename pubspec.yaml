@@ -31,7 +31,6 @@ dependencies:
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
   flutter_datetime_picker: 1.5.0
-  flutter_spinkit: ^4.1.2+1
   font_awesome_flutter:
   geolocator:
   google_fonts: ^2.1.0

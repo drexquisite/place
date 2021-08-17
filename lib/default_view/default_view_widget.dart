@@ -2,7 +2,6 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultViewWidget extends StatefulWidget {
@@ -163,9 +162,8 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           child: SizedBox(
                             width: 15,
                             height: 15,
-                            child: SpinKitWanderingCubes(
+                            child: CircularProgressIndicator(
                               color: Color(0xFF9F68E4),
-                              size: 15,
                             ),
                           ),
                         );
@@ -200,9 +198,8 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                     child: SizedBox(
                                       width: 15,
                                       height: 15,
-                                      child: SpinKitWanderingCubes(
+                                      child: CircularProgressIndicator(
                                         color: Color(0xFF9F68E4),
-                                        size: 15,
                                       ),
                                     ),
                                   );

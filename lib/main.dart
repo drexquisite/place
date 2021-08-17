@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
 import 'package:place_app/splash_screen/splash_screen_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'default_view/default_view_widget.dart';
 import 'profile_default/profile_default_widget.dart';
 

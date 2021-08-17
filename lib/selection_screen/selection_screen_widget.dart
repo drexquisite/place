@@ -7,7 +7,6 @@ import '../main.dart';
 import '../main_screen/main_screen_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelectionScreenWidget extends StatefulWidget {
