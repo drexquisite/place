@@ -191,10 +191,14 @@ class _CreateTaskCopyWidgetState extends State<CreateTaskCopyWidget> {
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
               child: InkWell(
                 onTap: () async {
-                  await DatePicker.showDatePicker(context,
-                      showTitleActions: true, onConfirm: (date) {
-                    setState(() => datePicked = date);
-                  }, currentTime: DateTime.now());
+                  await DatePicker.showDatePicker(
+                    context,
+                    showTitleActions: true,
+                    onConfirm: (date) {
+                      setState(() => datePicked = date);
+                    },
+                    currentTime: DateTime.now(),
+                  );
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.92,

@@ -160,10 +160,14 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
               padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
               child: InkWell(
                 onTap: () async {
-                  await DatePicker.showDatePicker(context,
-                      showTitleActions: true, onConfirm: (date) {
-                    setState(() => datePicked = date);
-                  }, currentTime: DateTime.now());
+                  await DatePicker.showDatePicker(
+                    context,
+                    showTitleActions: true,
+                    onConfirm: (date) {
+                      setState(() => datePicked = date);
+                    },
+                    currentTime: DateTime.now(),
+                  );
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.92,
