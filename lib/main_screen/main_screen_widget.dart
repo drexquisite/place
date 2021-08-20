@@ -39,13 +39,23 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        'P L A C E \\n',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lato',
-                          color: Colors.black,
-                          fontSize: 35,
-                          fontWeight: FontWeight.w300,
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 1,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        child: Align(
+                          alignment: Alignment(0, 0),
+                          child: Text(
+                            'P L A C E \\n',
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lato',
+                              color: Colors.black,
+                              fontSize: 35,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                         ),
                       )
                     ],
@@ -66,7 +76,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                               Align(
                                 alignment: Alignment(0, 0),
                                 child: Padding(
-                                  padding: EdgeInsets.fromLTRB(0, 200, 0, 20),
+                                  padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       await Navigator.push(
