@@ -89,8 +89,8 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                     },
                                     text: '',
                                     icon: Icon(
-                                      Icons.house_sharp,
-                                      size: 35,
+                                      Icons.add_business,
+                                      size: 40,
                                     ),
                                     options: FFButtonOptions(
                                       width: 100,
