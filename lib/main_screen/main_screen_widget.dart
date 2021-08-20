@@ -48,7 +48,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                         child: Align(
                           alignment: Alignment(0, 0),
                           child: Text(
-                            'P L A C E \\n',
+                            'P L A C E',
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lato',
                               color: Colors.black,
