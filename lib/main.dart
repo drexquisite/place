@@ -4,7 +4,7 @@ import 'auth/firebase_user_provider.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:place_app/splash_screen/splash_screen_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
-import 'splash_screen/splash_screen_widget.dart';
+import 'main_screen/main_screen_widget.dart';
 import 'default_view/default_view_widget.dart';
 import 'profile_default/profile_default_widget.dart';
 
@@ -75,7 +75,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'SplashScreen': SplashScreenWidget(),
+      'MainScreen': MainScreenWidget(),
       'DefaultView': DefaultViewWidget(),
       'ProfileDefault': ProfileDefaultWidget(),
     };
