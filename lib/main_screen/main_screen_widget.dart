@@ -89,7 +89,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                     },
                                     text: '',
                                     icon: Icon(
-                                      Icons.home,
+                                      Icons.house_sharp,
                                       size: 35,
                                     ),
                                     options: FFButtonOptions(
@@ -102,7 +102,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      elevation: 10,
+                                      elevation: 3,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 35,
