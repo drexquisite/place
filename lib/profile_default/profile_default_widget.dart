@@ -107,7 +107,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                 ),
                                 offIcon: Icon(
                                   Icons.check_box_outline_blank,
-                                  color: Colors.black,
+                                  color: Colors.transparent,
                                   size: 25,
                                 ),
                               );
