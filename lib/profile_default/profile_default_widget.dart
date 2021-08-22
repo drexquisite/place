@@ -30,45 +30,46 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              StreamBuilder<List<UsersRecord>>(
-                stream: queryUsersRecord(
-                  queryBuilder: (usersRecord) => usersRecord.where('FullName',
-                      isEqualTo: currentUserDisplayName),
-                  singleRecord: true,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 220,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                 ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 15,
-                        height: 15,
-                        child: CircularProgressIndicator(
-                          color: Color(0xFF9F68E4),
-                        ),
-                      ),
-                    );
-                  }
-                  List<UsersRecord> containerUsersRecordList = snapshot.data;
-                  // Customize what your widget looks like with no query results.
-                  if (snapshot.data.isEmpty) {
-                    return Container(
-                      height: 100,
-                      child: Center(
-                        child: Text('No results.'),
-                      ),
-                    );
-                  }
-                  final containerUsersRecord = containerUsersRecordList.first;
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 220,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                  child: StreamBuilder<List<UsersRecord>>(
+                    stream: queryUsersRecord(
+                      queryBuilder: (usersRecord) => usersRecord
+                          .where('FullName', isEqualTo: currentUserDisplayName)
+                          .where('isVerified', isEqualTo: true),
+                      singleRecord: true,
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                      child: Column(
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 15,
+                            height: 15,
+                            child: CircularProgressIndicator(
+                              color: Color(0xFF9F68E4),
+                            ),
+                          ),
+                        );
+                      }
+                      List<UsersRecord> columnUsersRecordList = snapshot.data;
+                      // Customize what your widget looks like with no query results.
+                      if (snapshot.data.isEmpty) {
+                        return Container(
+                          height: 100,
+                          child: Center(
+                            child: Text('No results.'),
+                          ),
+                        );
+                      }
+                      final columnUsersRecord = columnUsersRecordList.first;
+                      return Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Row(
@@ -126,12 +127,12 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                       final usersUpdateData =
                                           createUsersRecordData(
                                         isVerified:
-                                            !containerUsersRecord.isVerified,
+                                            !columnUsersRecord.isVerified,
                                       );
-                                      await containerUsersRecord.reference
+                                      await columnUsersRecord.reference
                                           .update(usersUpdateData);
                                     },
-                                    value: containerUsersRecord.isVerified,
+                                    value: columnUsersRecord.isVerified,
                                     onIcon: Icon(
                                       Icons.verified,
                                       color: FlutterFlowTheme.primaryColor,
@@ -166,7 +167,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                                 child: Text(
-                                  containerUsersRecord.fullName,
+                                  columnUsersRecord.fullName,
                                   style: FlutterFlowTheme.title1.override(
                                     fontFamily: 'Lato',
                                     color: Color(0xFF090F13),
@@ -195,10 +196,10 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                             ],
                           )
                         ],
-                      ),
-                    ),
-                  );
-                },
+                      );
+                    },
+                  ),
+                ),
               )
             ],
           ),
