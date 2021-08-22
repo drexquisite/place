@@ -44,6 +44,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   DocumentReference get userGroup;
 
   @nullable
+  bool get isVerified;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -54,7 +57,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..email = ''
     ..displayName = ''
     ..phoneNumber = ''
-    ..photoUrl = '';
+    ..photoUrl = ''
+    ..isVerified = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Users');
@@ -83,6 +87,7 @@ Map<String, dynamic> createUsersRecordData({
   String phoneNumber,
   String photoUrl,
   DocumentReference userGroup,
+  bool isVerified,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
@@ -95,4 +100,5 @@ Map<String, dynamic> createUsersRecordData({
           ..createdTime = createdTime
           ..phoneNumber = phoneNumber
           ..photoUrl = photoUrl
-          ..userGroup = userGroup));
+          ..userGroup = userGroup
+          ..isVerified = isVerified));

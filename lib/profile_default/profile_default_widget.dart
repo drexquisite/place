@@ -1,5 +1,7 @@
 import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../login/login_widget.dart';
@@ -20,7 +22,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF7F7F9),
+      backgroundColor: Color(0xFFF7F6FB),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -55,6 +57,61 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                 'assets/images/lllllll.jpg',
                               ),
                             ),
+                          ),
+                          StreamBuilder<List<UsersRecord>>(
+                            stream: queryUsersRecord(
+                              queryBuilder: (usersRecord) => usersRecord
+                                  .where('isVerified', isEqualTo: true),
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 15,
+                                    height: 15,
+                                    child: CircularProgressIndicator(
+                                      color: Color(0xFF9F68E4),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<UsersRecord> verifiedCheckUsersRecordList =
+                                  snapshot.data;
+                              // Customize what your widget looks like with no query results.
+                              if (snapshot.data.isEmpty) {
+                                return Container(
+                                  height: 100,
+                                  child: Center(
+                                    child: Text('No results.'),
+                                  ),
+                                );
+                              }
+                              final verifiedCheckUsersRecord =
+                                  verifiedCheckUsersRecordList.first;
+                              return ToggleIcon(
+                                onPressed: () async {
+                                  final usersUpdateData = createUsersRecordData(
+                                    isVerified:
+                                        !verifiedCheckUsersRecord.isVerified,
+                                  );
+                                  await verifiedCheckUsersRecord.reference
+                                      .update(usersUpdateData);
+                                },
+                                value: verifiedCheckUsersRecord.isVerified,
+                                onIcon: Icon(
+                                  Icons.verified,
+                                  color: FlutterFlowTheme.primaryColor,
+                                  size: 25,
+                                ),
+                                offIcon: Icon(
+                                  Icons.check_box_outline_blank,
+                                  color: Colors.black,
+                                  size: 25,
+                                ),
+                              );
+                            },
                           ),
                           Expanded(
                             child: Align(
