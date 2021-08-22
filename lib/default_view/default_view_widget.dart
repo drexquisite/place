@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -26,61 +27,93 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 108,
-                decoration: BoxDecoration(),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(24, 44, 0, 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
+              StreamBuilder<List<UsersRecord>>(
+                stream: queryUsersRecord(
+                  queryBuilder: (usersRecord) => usersRecord.where('FullName',
+                      isEqualTo: currentUserDisplayName),
+                  singleRecord: true,
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 15,
+                        height: 15,
+                        child: CircularProgressIndicator(
+                          color: Color(0xFF9F68E4),
+                        ),
+                      ),
+                    );
+                  }
+                  List<UsersRecord> containerUsersRecordList = snapshot.data;
+                  // Customize what your widget looks like with no query results.
+                  if (snapshot.data.isEmpty) {
+                    return Container(
+                      height: 100,
+                      child: Center(
+                        child: Text('No results.'),
+                      ),
+                    );
+                  }
+                  final containerUsersRecord = containerUsersRecordList.first;
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 108,
+                    decoration: BoxDecoration(),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(24, 44, 0, 0),
+                      child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            'Hello',
-                            style: FlutterFlowTheme.title1.override(
-                              fontFamily: 'Lato',
-                              color: Color(0xFF090F13),
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                            child: Text(
-                              'Iffad I',
-                              style: FlutterFlowTheme.title1.override(
-                                fontFamily: 'Lato',
-                                color: Color(0xFF8E55DE),
-                                fontSize: 24,
-                                fontWeight: FontWeight.normal,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Hello',
+                                style: FlutterFlowTheme.title1.override(
+                                  fontFamily: 'Lato',
+                                  color: Color(0xFF090F13),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
+                                child: Text(
+                                  containerUsersRecord.fullName,
+                                  style: FlutterFlowTheme.title1.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF8E55DE),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                                child: Text(
+                                  'Browse home listings below...',
+                                  style: FlutterFlowTheme.bodyText2.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF9F68E4),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              )
+                            ],
                           )
                         ],
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
-                            child: Text(
-                              'Browse home listings below...',
-                              style: FlutterFlowTheme.bodyText2.override(
-                                fontFamily: 'Lato',
-                                color: Color(0xFF9F68E4),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               )
             ],
           ),
