@@ -20,249 +20,401 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Color(0xFFF7F6FB),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
+    return StreamBuilder<UsersRecord>(
+      stream: UsersRecord.getDocument(currentUserReference),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Center(
+            child: SizedBox(
+              width: 15,
+              height: 15,
+              child: CircularProgressIndicator(
+                color: Color(0xFF9F68E4),
+              ),
+            ),
+          );
+        }
+        final profileDefaultUsersRecord = snapshot.data;
+        return Scaffold(
+          key: scaffoldKey,
+          backgroundColor: Color(0xFFF7F6FB),
+          body: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 220,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 220,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                      child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
-                            child: Container(
-                              width: 76,
-                              height: 76,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.asset(
-                                'assets/images/lllllll.jpg',
-                              ),
-                            ),
-                          ),
-                          StreamBuilder<List<UsersRecord>>(
-                            stream: queryUsersRecord(
-                              queryBuilder: (usersRecord) => usersRecord
-                                  .where('isVerified', isEqualTo: true),
-                              singleRecord: true,
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 15,
-                                    height: 15,
-                                    child: CircularProgressIndicator(
-                                      color: Color(0xFF9F68E4),
-                                    ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                                child: Container(
+                                  width: 76,
+                                  height: 76,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
                                   ),
-                                );
-                              }
-                              List<UsersRecord> verifiedCheckUsersRecordList =
-                                  snapshot.data;
-                              // Customize what your widget looks like with no query results.
-                              if (snapshot.data.isEmpty) {
-                                return Container(
-                                  height: 100,
-                                  child: Center(
-                                    child: Text('No results.'),
+                                  child: Image.asset(
+                                    'assets/images/lllllll.jpg',
                                   ),
-                                );
-                              }
-                              final verifiedCheckUsersRecord =
-                                  verifiedCheckUsersRecordList.first;
-                              return ToggleIcon(
-                                onPressed: () async {
-                                  final usersUpdateData = createUsersRecordData(
-                                    isVerified:
-                                        !verifiedCheckUsersRecord.isVerified,
-                                  );
-                                  await verifiedCheckUsersRecord.reference
-                                      .update(usersUpdateData);
-                                },
-                                value: verifiedCheckUsersRecord.isVerified,
-                                onIcon: Icon(
-                                  Icons.verified,
-                                  color: FlutterFlowTheme.primaryColor,
-                                  size: 25,
-                                ),
-                                offIcon: Icon(
-                                  Icons.check_box_outline_blank,
-                                  color: Colors.transparent,
-                                  size: 25,
-                                ),
-                              );
-                            },
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment(0.85, 0),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
-                                child: Icon(
-                                  Icons.edit_outlined,
-                                  color: Color(0xFF95A1AC),
-                                  size: 24,
                                 ),
                               ),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                            child: StreamBuilder<List<UsersRecord>>(
-                              stream: queryUsersRecord(
-                                queryBuilder: (usersRecord) =>
-                                    usersRecord.where('FullName',
-                                        isEqualTo: currentUserDisplayName),
-                                singleRecord: true,
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 15,
-                                      height: 15,
-                                      child: CircularProgressIndicator(
-                                        color: Color(0xFF9F68E4),
+                              StreamBuilder<List<UsersRecord>>(
+                                stream: queryUsersRecord(
+                                  queryBuilder: (usersRecord) => usersRecord
+                                      .where('isVerified', isEqualTo: true),
+                                  singleRecord: true,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 15,
+                                        height: 15,
+                                        child: CircularProgressIndicator(
+                                          color: Color(0xFF9F68E4),
+                                        ),
                                       ),
+                                    );
+                                  }
+                                  List<UsersRecord>
+                                      verifiedCheckUsersRecordList =
+                                      snapshot.data;
+                                  // Customize what your widget looks like with no query results.
+                                  if (snapshot.data.isEmpty) {
+                                    return Container(
+                                      height: 100,
+                                      child: Center(
+                                        child: Text('No results.'),
+                                      ),
+                                    );
+                                  }
+                                  final verifiedCheckUsersRecord =
+                                      verifiedCheckUsersRecordList.first;
+                                  return ToggleIcon(
+                                    onPressed: () async {
+                                      final usersUpdateData =
+                                          createUsersRecordData(
+                                        isVerified: !verifiedCheckUsersRecord
+                                            .isVerified,
+                                      );
+                                      await verifiedCheckUsersRecord.reference
+                                          .update(usersUpdateData);
+                                    },
+                                    value: verifiedCheckUsersRecord.isVerified,
+                                    onIcon: Icon(
+                                      Icons.verified,
+                                      color: FlutterFlowTheme.primaryColor,
+                                      size: 25,
+                                    ),
+                                    offIcon: Icon(
+                                      Icons.check_box_outline_blank,
+                                      color: Colors.transparent,
+                                      size: 25,
                                     ),
                                   );
-                                }
-                                List<UsersRecord> textUsersRecordList =
-                                    snapshot.data;
-                                // Customize what your widget looks like with no query results.
-                                if (snapshot.data.isEmpty) {
-                                  return Container(
-                                    height: 100,
-                                    child: Center(
-                                      child: Text('No results.'),
+                                },
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment(0.85, 0),
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                                    child: Icon(
+                                      Icons.edit_outlined,
+                                      color: Color(0xFF95A1AC),
+                                      size: 24,
                                     ),
-                                  );
-                                }
-                                final textUsersRecord =
-                                    textUsersRecordList.first;
-                                return Text(
-                                  currentUserDisplayName,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Text(
+                                  profileDefaultUsersRecord.fullName,
                                   style: FlutterFlowTheme.title1.override(
                                     fontFamily: 'Lato',
                                     color: Color(0xFF090F13),
                                     fontSize: 25,
                                     fontWeight: FontWeight.w500,
                                   ),
-                                );
-                              },
-                            ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                child: Text(
+                                  'Looking to Rent',
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF8E55DE),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              )
+                            ],
                           )
                         ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                            child: Text(
-                              'Looking to Rent',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                color: Color(0xFF8E55DE),
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(24, 12, 0, 12),
-                    child: Text(
-                      'Account Settings',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lato',
-                        color: Color(0xFF090F13),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   )
                 ],
-              )
-            ],
-          ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              scrollDirection: Axis.vertical,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(24, 12, 0, 12),
+                        child: Text(
+                          'Account Settings',
+                          style: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lato',
+                            color: Color(0xFF090F13),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.rectangle,
-                      ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                child: Text(
+                                  'Past House Posts',
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF090F13),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment(0.9, 0),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Color(0xFF95A1AC),
+                                    size: 18,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                            child: Text(
-                              'Past House Posts',
-                              style: FlutterFlowTheme.bodyText1.override(
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  child: Text(
+                                    'Settings',
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF090F13),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(0.9, 0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Color(0xFF95A1AC),
+                                      size: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  child: Text(
+                                    'Notifications',
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF090F13),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(0.9, 0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Color(0xFF95A1AC),
+                                      size: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  child: Text(
+                                    'Change Password',
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF090F13),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment(0.9, 0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Color(0xFF95A1AC),
+                                      size: 18,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              await signOut();
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginWidget(),
+                                ),
+                              );
+                            },
+                            text: 'Log Out',
+                            options: FFButtonOptions(
+                              width: 120,
+                              height: 40,
+                              color: Colors.white,
+                              textStyle: FlutterFlowTheme.bodyText2.override(
                                 fontFamily: 'Lato',
-                                color: Color(0xFF090F13),
-                                fontSize: 14,
+                                color: Color(0xFF8E55DE),
+                                fontSize: 15,
                                 fontWeight: FontWeight.normal,
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment(0.9, 0),
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Color(0xFF95A1AC),
-                                size: 18,
+                              elevation: 2,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
                               ),
+                              borderRadius: 8,
                             ),
                           )
                         ],
@@ -270,178 +422,11 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                     )
                   ],
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                              child: Text(
-                                'Settings',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0xFF090F13),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment(0.9, 0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
-                                  size: 18,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                              child: Text(
-                                'Notifications',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0xFF090F13),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment(0.9, 0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
-                                  size: 18,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                              child: Text(
-                                'Change Password',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0xFF090F13),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment(0.9, 0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
-                                  size: 18,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          await signOut();
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginWidget(),
-                            ),
-                          );
-                        },
-                        text: 'Log Out',
-                        options: FFButtonOptions(
-                          width: 120,
-                          height: 40,
-                          color: Colors.white,
-                          textStyle: FlutterFlowTheme.bodyText2.override(
-                            fontFamily: 'Lato',
-                            color: Color(0xFF8E55DE),
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          elevation: 2,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: 8,
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
