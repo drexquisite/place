@@ -133,14 +133,49 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                         children: [
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                            child: Text(
-                              currentUserDisplayName,
-                              style: FlutterFlowTheme.title1.override(
-                                fontFamily: 'Lato',
-                                color: Color(0xFF090F13),
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
+                            child: StreamBuilder<List<UsersRecord>>(
+                              stream: queryUsersRecord(
+                                queryBuilder: (usersRecord) =>
+                                    usersRecord.where('FullName',
+                                        isEqualTo: currentUserDisplayName),
+                                singleRecord: true,
                               ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 15,
+                                      height: 15,
+                                      child: CircularProgressIndicator(
+                                        color: Color(0xFF9F68E4),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<UsersRecord> textUsersRecordList =
+                                    snapshot.data;
+                                // Customize what your widget looks like with no query results.
+                                if (snapshot.data.isEmpty) {
+                                  return Container(
+                                    height: 100,
+                                    child: Center(
+                                      child: Text('No results.'),
+                                    ),
+                                  );
+                                }
+                                final textUsersRecord =
+                                    textUsersRecordList.first;
+                                return Text(
+                                  currentUserDisplayName,
+                                  style: FlutterFlowTheme.title1.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF090F13),
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                );
+                              },
                             ),
                           )
                         ],
