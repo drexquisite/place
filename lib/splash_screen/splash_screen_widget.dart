@@ -40,13 +40,16 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'P L A C E\\n',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lato',
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w300,
+                    Align(
+                      alignment: Alignment(0, 0),
+                      child: Text(
+                        'P L A C E',
+                        style: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lato',
+                          color: Colors.black,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
                     )
                   ],
