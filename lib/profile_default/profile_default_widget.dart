@@ -38,166 +38,131 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                 ),
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                  child: StreamBuilder<List<UsersRecord>>(
-                    stream: queryUsersRecord(
-                      queryBuilder: (usersRecord) => usersRecord
-                          .where('FullName', isEqualTo: currentUserDisplayName)
-                          .where('isVerified', isEqualTo: true),
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 15,
-                            height: 15,
-                            child: CircularProgressIndicator(
-                              color: Color(0xFF9F68E4),
-                            ),
-                          ),
-                        );
-                      }
-                      List<UsersRecord> columnUsersRecordList = snapshot.data;
-                      // Customize what your widget looks like with no query results.
-                      if (snapshot.data.isEmpty) {
-                        return Container(
-                          height: 100,
-                          child: Center(
-                            child: Text('No results.'),
-                          ),
-                        );
-                      }
-                      final columnUsersRecord = columnUsersRecordList.first;
-                      return Column(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
-                                child: Container(
-                                  width: 76,
-                                  height: 76,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/lllllll.jpg',
-                                  ),
-                                ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                            child: Container(
+                              width: 76,
+                              height: 76,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
                               ),
-                              StreamBuilder<List<UsersRecord>>(
-                                stream: queryUsersRecord(
-                                  queryBuilder: (usersRecord) => usersRecord
-                                      .where('isVerified', isEqualTo: true),
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 15,
-                                        height: 15,
-                                        child: CircularProgressIndicator(
-                                          color: Color(0xFF9F68E4),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<UsersRecord>
-                                      verifiedCheckUsersRecordList =
-                                      snapshot.data;
-                                  // Customize what your widget looks like with no query results.
-                                  if (snapshot.data.isEmpty) {
-                                    return Container(
-                                      height: 100,
-                                      child: Center(
-                                        child: Text('No results.'),
-                                      ),
-                                    );
-                                  }
-                                  final verifiedCheckUsersRecord =
-                                      verifiedCheckUsersRecordList.first;
-                                  return ToggleIcon(
-                                    onPressed: () async {
-                                      final usersUpdateData =
-                                          createUsersRecordData(
-                                        isVerified:
-                                            !columnUsersRecord.isVerified,
-                                      );
-                                      await columnUsersRecord.reference
-                                          .update(usersUpdateData);
-                                    },
-                                    value: columnUsersRecord.isVerified,
-                                    onIcon: Icon(
-                                      Icons.verified,
-                                      color: FlutterFlowTheme.primaryColor,
-                                      size: 25,
+                              child: Image.asset(
+                                'assets/images/lllllll.jpg',
+                              ),
+                            ),
+                          ),
+                          StreamBuilder<List<UsersRecord>>(
+                            stream: queryUsersRecord(
+                              queryBuilder: (usersRecord) => usersRecord
+                                  .where('isVerified', isEqualTo: true),
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 15,
+                                    height: 15,
+                                    child: CircularProgressIndicator(
+                                      color: Color(0xFF9F68E4),
                                     ),
-                                    offIcon: Icon(
-                                      Icons.check_box_outline_blank,
-                                      color: Colors.transparent,
-                                      size: 25,
-                                    ),
+                                  ),
+                                );
+                              }
+                              List<UsersRecord> verifiedCheckUsersRecordList =
+                                  snapshot.data;
+                              // Customize what your widget looks like with no query results.
+                              if (snapshot.data.isEmpty) {
+                                return Container(
+                                  height: 100,
+                                  child: Center(
+                                    child: Text('No results.'),
+                                  ),
+                                );
+                              }
+                              final verifiedCheckUsersRecord =
+                                  verifiedCheckUsersRecordList.first;
+                              return ToggleIcon(
+                                onPressed: () async {
+                                  final usersUpdateData = createUsersRecordData(
+                                    isVerified:
+                                        !verifiedCheckUsersRecord.isVerified,
                                   );
+                                  await verifiedCheckUsersRecord.reference
+                                      .update(usersUpdateData);
                                 },
+                                value: verifiedCheckUsersRecord.isVerified,
+                                onIcon: Icon(
+                                  Icons.verified,
+                                  color: FlutterFlowTheme.primaryColor,
+                                  size: 25,
+                                ),
+                                offIcon: Icon(
+                                  Icons.check_box_outline_blank,
+                                  color: Colors.transparent,
+                                  size: 25,
+                                ),
+                              );
+                            },
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment(0.85, 0),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                                child: Icon(
+                                  Icons.edit_outlined,
+                                  color: Color(0xFF95A1AC),
+                                  size: 24,
+                                ),
                               ),
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment(0.85, 0),
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
-                                    child: Icon(
-                                      Icons.edit_outlined,
-                                      color: Color(0xFF95A1AC),
-                                      size: 24,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                child: Text(
-                                  columnUsersRecord.fullName,
-                                  style: FlutterFlowTheme.title1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
-                                child: Text(
-                                  'Looking to Rent',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF8E55DE),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              )
-                            ],
+                            ),
                           )
                         ],
-                      );
-                    },
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                            child: Text(
+                              currentUserDisplayName,
+                              style: FlutterFlowTheme.title1.override(
+                                fontFamily: 'Lato',
+                                color: Color(0xFF090F13),
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                            child: Text(
+                              'Looking to Rent',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lato',
+                                color: Color(0xFF8E55DE),
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
                   ),
                 ),
               )
