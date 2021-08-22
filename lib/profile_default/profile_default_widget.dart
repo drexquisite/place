@@ -81,7 +81,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               style: FlutterFlowTheme.title1.override(
                                 fontFamily: 'Lato',
                                 color: Color(0xFF090F13),
-                                fontSize: 24,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -98,7 +98,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lato',
                                 color: Color(0xFF8E55DE),
-                                fontSize: 14,
+                                fontSize: 16,
                                 fontWeight: FontWeight.normal,
                               ),
                             ),
@@ -330,8 +330,8 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                           color: Colors.white,
                           textStyle: FlutterFlowTheme.bodyText2.override(
                             fontFamily: 'Lato',
-                            color: Color(0xFF4B39EF),
-                            fontSize: 14,
+                            color: Color(0xFF8E55DE),
+                            fontSize: 15,
                             fontWeight: FontWeight.normal,
                           ),
                           elevation: 2,
