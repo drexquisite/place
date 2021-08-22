@@ -52,7 +52,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lato',
                               color: Colors.black,
-                              fontSize: 30,
+                              fontSize: 35,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
