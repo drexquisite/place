@@ -86,12 +86,10 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              color: Color(0xFF9E9E9E),
               size: 24,
             ),
             activeIcon: Icon(
               Icons.home,
-              color: FlutterFlowTheme.primaryColor,
               size: 24,
             ),
             label: 'Home',
