@@ -198,6 +198,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           }
                           return ListView.builder(
                             padding: EdgeInsets.zero,
+                            shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: listViewHousePostsRecordList.length,
                             itemBuilder: (context, listViewIndex) {
