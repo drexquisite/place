@@ -6,7 +6,7 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreateTaskWidget extends StatefulWidget {
-  CreateTaskWidget({Key key}) : super(key: key);
+  const CreateTaskWidget({Key key}) : super(key: key);
 
   @override
   _CreateTaskWidgetState createState() => _CreateTaskWidgetState();
@@ -36,7 +36,7 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
         width: MediaQuery.of(context).size.width,
         height: 470,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.primaryBlack,
+          color: FlutterFlowTheme.of(context).primaryBlack,
           boxShadow: [
             BoxShadow(
               blurRadius: 7,
@@ -50,114 +50,108 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 20, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 20, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
                     'Add Task',
-                    style: FlutterFlowTheme.title2.override(
-                      fontFamily: 'Lato',
-                    ),
-                  )
+                    style: FlutterFlowTheme.of(context).title2,
+                  ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 4, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
                     'Fill out the details below to add a new task.',
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Lato',
-                      color: FlutterFlowTheme.tertiaryColor,
-                    ),
-                  )
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Lato',
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                        ),
+                  ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: TextFormField(
                 controller: textController1,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Task Name',
-                  labelStyle: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Lato',
-                    color: FlutterFlowTheme.tertiaryColor,
-                  ),
+                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Lato',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                      ),
                   hintText: 'Enter your task here....',
-                  hintStyle: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Lato',
-                    color: FlutterFlowTheme.tertiaryColor,
-                  ),
+                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Lato',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                      ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.darkBG,
+                      color: FlutterFlowTheme.of(context).darkBG,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.darkBG,
+                      color: FlutterFlowTheme.of(context).darkBG,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   filled: true,
-                  fillColor: FlutterFlowTheme.darkBG,
+                  fillColor: FlutterFlowTheme.of(context).darkBG,
                 ),
-                style: FlutterFlowTheme.bodyText1.override(
-                  fontFamily: 'Lato',
-                ),
+                style: FlutterFlowTheme.of(context).bodyText1,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: TextFormField(
                 controller: textController2,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Details',
-                  labelStyle: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Lato',
-                    color: FlutterFlowTheme.tertiaryColor,
-                  ),
+                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Lato',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                      ),
                   hintText: 'Enter a description here...',
-                  hintStyle: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Lato',
-                    color: FlutterFlowTheme.tertiaryColor,
-                  ),
+                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Lato',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                      ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.darkBG,
+                      color: FlutterFlowTheme.of(context).darkBG,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.darkBG,
+                      color: FlutterFlowTheme.of(context).darkBG,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   filled: true,
-                  fillColor: FlutterFlowTheme.darkBG,
+                  fillColor: FlutterFlowTheme.of(context).darkBG,
                 ),
-                style: FlutterFlowTheme.bodyText1.override(
-                  fontFamily: 'Lato',
-                ),
+                style: FlutterFlowTheme.of(context).bodyText1,
                 textAlign: TextAlign.start,
                 maxLines: 3,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: InkWell(
                 onTap: () async {
                   await DatePicker.showDatePicker(
@@ -166,35 +160,36 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     onConfirm: (date) {
                       setState(() => datePicked = date);
                     },
-                    currentTime: DateTime.now(),
+                    currentTime: getCurrentTimestamp,
+                    minTime: DateTime(0, 0, 0),
                   );
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.92,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.darkBG,
+                    color: FlutterFlowTheme.of(context).darkBG,
                     borderRadius: BorderRadius.circular(8),
                     border: Border.all(
-                      color: FlutterFlowTheme.darkBG,
+                      color: FlutterFlowTheme.of(context).darkBG,
                       width: 1,
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 14, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 14, 0, 0),
                     child: Text(
                       dateTimeFormat('MMMEd', datePicked),
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lato',
-                        color: FlutterFlowTheme.tertiaryColor,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lato',
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
+                          ),
                     ),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -207,11 +202,12 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     options: FFButtonOptions(
                       width: 130,
                       height: 50,
-                      color: FlutterFlowTheme.primaryBlack,
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Lato',
-                        color: Colors.white,
-                      ),
+                      color: FlutterFlowTheme.of(context).primaryBlack,
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Lato',
+                                color: Colors.white,
+                              ),
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1,
@@ -227,11 +223,12 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                     options: FFButtonOptions(
                       width: 130,
                       height: 50,
-                      color: FlutterFlowTheme.primaryColor,
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Lato',
-                        color: Colors.white,
-                      ),
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Lato',
+                                color: Colors.white,
+                              ),
                       elevation: 3,
                       borderSide: BorderSide(
                         color: Colors.transparent,
@@ -239,10 +236,10 @@ class _CreateTaskWidgetState extends State<CreateTaskWidget> {
                       ),
                       borderRadius: 8,
                     ),
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

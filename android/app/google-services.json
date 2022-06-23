@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "420939199161",
+    "firebase_url": "https://place-95b4a-default-rtdb.firebaseio.com",
     "project_id": "place-95b4a",
     "storage_bucket": "place-95b4a.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "420939199161-t8m52tpthtov3hlgn9qn440vs8c3smdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iffadiqbal.place",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
         {
           "client_id": "420939199161-nq9h8r16od5s9urb7p5fc9f33fa38t47.apps.googleusercontent.com",
           "client_type": 3

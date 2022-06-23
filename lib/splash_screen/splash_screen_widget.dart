@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreenWidget extends StatefulWidget {
-  SplashScreenWidget({Key key}) : super(key: key);
+  const SplashScreenWidget({Key key}) : super(key: key);
 
   @override
   _SplashScreenWidgetState createState() => _SplashScreenWidgetState();
@@ -20,7 +20,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.primaryBlack,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBlack,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 1,
@@ -28,7 +28,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
           color: Colors.white,
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -41,17 +41,17 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: Alignment(0, 0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Text(
                         'P L A C E',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lato',
-                          color: Colors.black,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w300,
-                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Lato',
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w300,
+                            ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -63,12 +63,13 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 2, 0, 20),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 2, 0, 20),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   await Navigator.pushAndRemoveUntil(
@@ -84,12 +85,13 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                   width: 200,
                                   height: 50,
                                   color: Color(0xFF8E55DE),
-                                  textStyle:
-                                      FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Lato',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                   elevation: 1,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
@@ -113,12 +115,14 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                               options: FFButtonOptions(
                                 width: 200,
                                 height: 50,
-                                color: FlutterFlowTheme.white,
-                                textStyle: FlutterFlowTheme.subtitle2.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0xFF8E55DE),
-                                  fontWeight: FontWeight.normal,
-                                ),
+                                color: FlutterFlowTheme.of(context).white,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF8E55DE),
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                 elevation: 1,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
@@ -126,25 +130,25 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                 ),
                                 borderRadius: 8,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                 child: Text(
                   'Iffad Iqbal ©',
-                  style: FlutterFlowTheme.bodyText1.override(
-                    fontFamily: 'Lato',
-                    color: Color(0xFF8E55DE),
-                    fontSize: 11,
-                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Lato',
+                        color: Color(0xFF8E55DE),
+                        fontSize: 11,
+                      ),
                 ),
-              )
+              ),
             ],
           ),
         ),

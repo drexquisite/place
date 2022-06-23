@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SelectionScreenWidget extends StatefulWidget {
-  SelectionScreenWidget({Key key}) : super(key: key);
+  const SelectionScreenWidget({Key key}) : super(key: key);
 
   @override
   _SelectionScreenWidgetState createState() => _SelectionScreenWidgetState();
@@ -22,7 +22,7 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.white,
+      backgroundColor: FlutterFlowTheme.of(context).white,
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -33,24 +33,24 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 200,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.white,
+                  color: FlutterFlowTheme.of(context).white,
                 ),
                 child: Align(
-                  alignment: Alignment(0, 0),
+                  alignment: AlignmentDirectional(0, 0),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 75, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 75, 0, 0),
                     child: Text(
                       'Are you?',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lato',
-                        color: Colors.black,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w300,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lato',
+                            color: Colors.black,
+                            fontSize: 35,
+                            fontWeight: FontWeight.w300,
+                          ),
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           Container(
@@ -65,13 +65,13 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: Alignment(0, 0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(20, 45, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 45, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             final userTypeCreateData = {
-                              'isLandLord': FieldValue.arrayUnion([true]),
+                              'isLandLord': [true],
                             };
                             await UserTypeRecord.collection
                                 .doc()
@@ -94,11 +94,12 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                             width: 75,
                             height: 75,
                             color: Colors.white,
-                            textStyle: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'Lato',
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal,
-                            ),
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Lato',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                             elevation: 0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -110,17 +111,17 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(55, 0, 0, 80),
+                      padding: EdgeInsetsDirectional.fromSTEB(55, 0, 0, 80),
                       child: Text(
-                        'Renting  \\n    Out',
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lato',
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                        ),
+                        'Renting  \n    Out',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Lato',
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                            ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Expanded(
@@ -128,13 +129,13 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: Alignment(0, 0),
+                        alignment: AlignmentDirectional(0, 0),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(65, 45, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(65, 45, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               final userTypeCreateData = {
-                                'isTenant': FieldValue.arrayUnion([true]),
+                                'isTenant': [true],
                               };
                               await UserTypeRecord.collection
                                   .doc()
@@ -157,11 +158,13 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                               width: 75,
                               height: 75,
                               color: Colors.white,
-                              textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Lato',
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                               elevation: 0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
@@ -173,21 +176,23 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(95, 0, 0, 80),
+                        padding: EdgeInsetsDirectional.fromSTEB(95, 0, 0, 80),
                         child: Text(
-                          'Looking To\\n      Rent',
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lato',
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300,
-                          ),
+                          'Looking To\n      Rent',
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Lato',
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                         ),
                       ),
                       Align(
-                        alignment: Alignment(0, 0),
+                        alignment: AlignmentDirectional(0, 0),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(0, 200, 120, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 200, 120, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               await Navigator.push(
@@ -207,11 +212,13 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                               width: 75,
                               height: 75,
                               color: Color(0xFF8E55DE),
-                              textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Lato',
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                               elevation: 2,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
@@ -221,13 +228,13 @@ class _SelectionScreenWidgetState extends State<SelectionScreenWidget> {
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

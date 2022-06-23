@@ -7,10 +7,9 @@ import '../login/login_widget.dart';
 import '../selection_screen/selection_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class RegisterWidget extends StatefulWidget {
-  RegisterWidget({Key key}) : super(key: key);
+  const RegisterWidget({Key key}) : super(key: key);
 
   @override
   _RegisterWidgetState createState() => _RegisterWidgetState();
@@ -51,33 +50,33 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 200,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.white,
+                  color: FlutterFlowTheme.of(context).white,
                 ),
                 child: Align(
-                  alignment: Alignment(0, 0),
+                  alignment: AlignmentDirectional(0, 0),
                   child: Text(
                     'P L A C E',
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Lato',
-                      color: Colors.black,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w300,
-                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Lato',
+                          color: Colors.black,
+                          fontSize: 35,
+                          fontWeight: FontWeight.w300,
+                        ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(24, 0, 24, 36),
+                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 36),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -86,15 +85,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Full Name',
-                              labelStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
                               hintText: 'Enter your name here...',
-                              hintStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0xFF8E55DE),
@@ -112,28 +103,22 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               filled: true,
                               fillColor: Color(0xFF9F68E4),
                             ),
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lato',
-                              fontWeight: FontWeight.w300,
-                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Lato',
+                                      fontWeight: FontWeight.w300,
+                                    ),
                             keyboardType: TextInputType.emailAddress,
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: TextFormField(
                               controller: emailFieldRegisterController,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Email Address',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 hintText: 'Enter your email here...',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFF8E55DE),
@@ -151,29 +136,24 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 filled: true,
                                 fillColor: Color(0xFF9F68E4),
                               ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    fontWeight: FontWeight.w300,
+                                  ),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: TextFormField(
                               controller: passwordFieldRegisterController,
                               obscureText: !passwordFieldRegisterVisibility,
                               decoration: InputDecoration(
                                 labelText: 'Password',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 hintText: 'Enter your password here...',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFF8E55DE),
@@ -195,6 +175,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     () => passwordFieldRegisterVisibility =
                                         !passwordFieldRegisterVisibility,
                                   ),
+                                  focusNode: FocusNode(skipTraversal: true),
                                   child: Icon(
                                     passwordFieldRegisterVisibility
                                         ? Icons.visibility_outlined
@@ -204,14 +185,17 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    fontWeight: FontWeight.w300,
+                                  ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: TextFormField(
                               controller:
                                   confirmPasswordFieldRegisterController,
@@ -219,15 +203,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   !confirmPasswordFieldRegisterVisibility,
                               decoration: InputDecoration(
                                 labelText: 'Confirm Password',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 hintText: 'Confirm password here...',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFF8E55DE),
@@ -249,6 +225,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     () => confirmPasswordFieldRegisterVisibility =
                                         !confirmPasswordFieldRegisterVisibility,
                                   ),
+                                  focusNode: FocusNode(skipTraversal: true),
                                   child: Icon(
                                     confirmPasswordFieldRegisterVisibility
                                         ? Icons.visibility_outlined
@@ -258,23 +235,26 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    fontWeight: FontWeight.w300,
+                                  ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (passwordFieldRegisterController.text !=
+                                if (passwordFieldRegisterController?.text !=
                                     confirmPasswordFieldRegisterController
-                                        .text) {
+                                        ?.text) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        "Passwords don't match!",
+                                        'Passwords don\'t match!',
                                       ),
                                     ),
                                   );
@@ -310,12 +290,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               options: FFButtonOptions(
                                 width: 200,
                                 height: 50,
-                                color: FlutterFlowTheme.darkBG,
-                                textStyle: FlutterFlowTheme.subtitle2.override(
-                                  fontFamily: 'Lato',
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                                color: FlutterFlowTheme.of(context).darkBG,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                 elevation: 3,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
@@ -332,17 +314,22 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 6),
                                   child: Text(
                                     'Don’t have an account yet? ',
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lato',
-                                      color: FlutterFlowTheme.darkBG,
-                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lato',
+                                          color: FlutterFlowTheme.of(context)
+                                              .darkBG,
+                                        ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 8, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       await Navigator.push(
@@ -360,12 +347,13 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     options: FFButtonOptions(
                                       width: 80,
                                       height: 30,
-                                      color: FlutterFlowTheme.white,
-                                      textStyle:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lato',
-                                        color: Color(0xFF9F68E4),
-                                      ),
+                                      color: FlutterFlowTheme.of(context).white,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Lato',
+                                            color: Color(0xFF9F68E4),
+                                          ),
                                       elevation: 0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
@@ -374,18 +362,18 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       borderRadius: 50,
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

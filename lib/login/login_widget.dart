@@ -6,10 +6,9 @@ import '../main.dart';
 import '../register/register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 
 class LoginWidget extends StatefulWidget {
-  LoginWidget({Key key}) : super(key: key);
+  const LoginWidget({Key key}) : super(key: key);
 
   @override
   _LoginWidgetState createState() => _LoginWidgetState();
@@ -32,13 +31,13 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      autovalidateMode: AutovalidateMode.always,
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.white,
-        body: Column(
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).white,
+      body: Form(
+        key: formKey,
+        autovalidateMode: AutovalidateMode.always,
+        child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Row(
@@ -48,33 +47,33 @@ class _LoginWidgetState extends State<LoginWidget> {
                   width: MediaQuery.of(context).size.width,
                   height: 200,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.white,
+                    color: FlutterFlowTheme.of(context).white,
                   ),
                   child: Align(
-                    alignment: Alignment(0, 0),
+                    alignment: AlignmentDirectional(0, 0),
                     child: Text(
                       'P L A C E',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lato',
-                        color: Colors.black,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w300,
-                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lato',
+                            color: Colors.black,
+                            fontSize: 35,
+                            fontWeight: FontWeight.w300,
+                          ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(24, 0, 24, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -83,15 +82,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Email Address',
-                                labelStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
                                 hintText: 'Your email...',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0x9AFFFFFF),
-                                ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0x9AFFFFFF),
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0xFF8E55DE),
@@ -113,13 +110,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   color: Colors.white,
                                 ),
                               ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w300,
-                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    fontWeight: FontWeight.w300,
+                                  ),
                               keyboardType: TextInputType.emailAddress,
                               validator: (val) {
-                                if (val.isEmpty) {
+                                if (val == null || val.isEmpty) {
                                   return 'Please fill in a valid email address...';
                                 }
 
@@ -127,23 +126,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                               },
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: TextFormField(
                                 controller: passwordFieldLoginController,
                                 obscureText: !passwordFieldLoginVisibility,
                                 decoration: InputDecoration(
                                   labelText: 'Password',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w300,
-                                  ),
                                   hintText: 'Enter your password here...',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0x9AFFFFFF),
-                                  ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0x9AFFFFFF),
+                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0xFF8E55DE),
@@ -169,6 +165,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       () => passwordFieldLoginVisibility =
                                           !passwordFieldLoginVisibility,
                                     ),
+                                    focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
                                       passwordFieldLoginVisibility
                                           ? Icons.visibility_outlined
@@ -178,12 +175,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w300,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      fontWeight: FontWeight.w300,
+                                    ),
                                 validator: (val) {
-                                  if (val.isEmpty) {
+                                  if (val == null || val.isEmpty) {
                                     return 'That password doesn\'t match.';
                                   }
 
@@ -192,12 +191,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  if (!formKey.currentState.validate()) {
-                                    return;
-                                  }
                                   final user = await signInWithEmail(
                                     context,
                                     emailFieldLoginController.text,
@@ -219,13 +216,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 options: FFButtonOptions(
                                   width: 200,
                                   height: 50,
-                                  color: FlutterFlowTheme.darkBG,
-                                  textStyle:
-                                      FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Lato',
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  color: FlutterFlowTheme.of(context).darkBG,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                   elevation: 3,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
@@ -237,21 +235,26 @@ class _LoginWidgetState extends State<LoginWidget> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 30),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 30),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.fromLTRB(0, 0, 0, 6),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 6),
                                       child: Text(
                                         'Don’t have an account yet? ',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lato',
-                                          color: FlutterFlowTheme.darkBG,
-                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Lato',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .darkBG,
+                                            ),
                                       ),
                                     ),
                                     FFButtonWidget(
@@ -272,12 +275,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       options: FFButtonOptions(
                                         width: 100,
                                         height: 32,
-                                        color: FlutterFlowTheme.white,
-                                        textStyle:
-                                            FlutterFlowTheme.subtitle2.override(
-                                          fontFamily: 'Lato',
-                                          color: Color(0xFF9F68E4),
-                                        ),
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lato',
+                                              color: Color(0xFF9F68E4),
+                                            ),
                                         elevation: 0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
@@ -285,19 +290,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         ),
                                         borderRadius: 50,
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

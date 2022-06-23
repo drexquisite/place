@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainScreenWidget extends StatefulWidget {
-  MainScreenWidget({Key key}) : super(key: key);
+  const MainScreenWidget({Key key}) : super(key: key);
 
   @override
   _MainScreenWidgetState createState() => _MainScreenWidgetState();
@@ -27,7 +27,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
             color: Colors.white,
           ),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -46,18 +46,19 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                           color: Colors.white,
                         ),
                         child: Align(
-                          alignment: Alignment(0, 0),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'P L A C E',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lato',
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Lato',
+                                      color: Colors.black,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w300,
+                                    ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -69,14 +70,15 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: Alignment(0, 0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
-                                  padding: EdgeInsets.fromLTRB(0, 100, 0, 20),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 100, 0, 20),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       await Navigator.push(
@@ -96,12 +98,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                       width: 100,
                                       height: 90,
                                       color: Color(0xFF8E55DE),
-                                      textStyle:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lato',
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Lato',
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                       elevation: 3,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
@@ -111,14 +114,14 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

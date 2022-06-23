@@ -1,6 +1,6 @@
 {
-    "name": "place_app",
-    "short_name": "place_app",
+    "name": "placeApp",
+    "short_name": "placeApp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

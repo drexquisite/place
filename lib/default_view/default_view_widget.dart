@@ -1,12 +1,13 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefaultViewWidget extends StatefulWidget {
-  DefaultViewWidget({Key key}) : super(key: key);
+  const DefaultViewWidget({Key key}) : super(key: key);
 
   @override
   _DefaultViewWidgetState createState() => _DefaultViewWidgetState();
@@ -35,7 +36,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
         final defaultViewUsersRecord = snapshot.data;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.white,
+          backgroundColor: FlutterFlowTheme.of(context).white,
           body: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +49,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                     height: 108,
                     decoration: BoxDecoration(),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(24, 44, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(24, 44, 0, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -57,55 +58,63 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                             children: [
                               Text(
                                 'Hello',
-                                style: FlutterFlowTheme.title1.override(
-                                  fontFamily: 'Lato',
-                                  color: Color(0xFF090F13),
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title1
+                                    .override(
+                                      fontFamily: 'Lato',
+                                      color: Color(0xFF090F13),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                                 child: Text(
                                   defaultViewUsersRecord.fullName,
-                                  style: FlutterFlowTheme.title1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF8E55DE),
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .title1
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0xFF8E55DE),
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                 child: Text(
                                   'Browse home listings below...',
-                                  style: FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF9F68E4),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText2
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0xFF9F68E4),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Expanded(
                 child: Stack(
                   children: [
                     Align(
-                      alignment: Alignment(0, 0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Container(
                         height: MediaQuery.of(context).size.height * 1,
                         decoration: BoxDecoration(),
@@ -116,7 +125,7 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.95,
                             height: 27,
@@ -136,12 +145,14 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4, 0, 4, 0),
                                     child: Icon(
                                       Icons.search_rounded,
                                       color: Color(0xFF8D9099),
@@ -150,23 +161,23 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: Alignment(0.95, 0),
+                                      alignment: AlignmentDirectional(0.95, 0),
                                       child: Icon(
                                         Icons.tune_rounded,
                                         color: Color(0xFFB3B7C2),
                                         size: 20,
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 70, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
                       child: StreamBuilder<List<HousePostsRecord>>(
                         stream: queryHousePostsRecord(
                           queryBuilder: (housePostsRecord) => housePostsRecord
@@ -187,15 +198,6 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           }
                           List<HousePostsRecord> listViewHousePostsRecordList =
                               snapshot.data;
-                          // Customize what your widget looks like with no query results.
-                          if (snapshot.data.isEmpty) {
-                            return Container(
-                              height: 100,
-                              child: Center(
-                                child: Text('No results.'),
-                              ),
-                            );
-                          }
                           return ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
@@ -205,7 +207,8 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                               final listViewHousePostsRecord =
                                   listViewHousePostsRecordList[listViewIndex];
                               return Padding(
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
                                 child: StreamBuilder<UsersRecord>(
                                   stream: UsersRecord.getDocument(
                                       listViewHousePostsRecord.user),
@@ -247,75 +250,88 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                                                   fit: BoxFit.cover,
                                                 ),
                                                 Align(
-                                                  alignment: Alignment(0, 0),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0, 0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.fromLTRB(
-                                                            310, 0, 0, 0),
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        print(
-                                                            'IconButton pressed ...');
-                                                      },
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                310, 0, 0, 0),
+                                                    child:
+                                                        FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 30,
+                                                      buttonSize: 46,
                                                       icon: Icon(
                                                         Icons.favorite_border,
                                                         color:
                                                             Color(0xFF8E55DE),
                                                         size: 25,
                                                       ),
-                                                      iconSize: 25,
+                                                      onPressed: () {
+                                                        print(
+                                                            'IconButton pressed ...');
+                                                      },
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
-                                                  alignment: Alignment(0, 0),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsets.fromLTRB(
-                                                                10, 10, 0, 0),
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10,
+                                                                    10, 0, 0),
                                                         child: Text(
                                                           'Posted By:',
-                                                          style:
-                                                              FlutterFlowTheme
-                                                                  .bodyText1
-                                                                  .override(
-                                                            fontFamily: 'Lato',
-                                                            color: Color(
-                                                                0xFF8E55DE),
-                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lato',
+                                                                color: Color(
+                                                                    0xFF8E55DE),
+                                                              ),
                                                         ),
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            Alignment(0, 0),
+                                                            AlignmentDirectional(
+                                                                0, 0),
                                                         child: Padding(
-                                                          padding: EdgeInsets
-                                                              .fromLTRB(
-                                                                  4, 10, 0, 0),
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(4,
+                                                                      10, 0, 0),
                                                           child: Text(
                                                             cardUsersRecord
                                                                 .fullName,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'Lato',
-                                                              color: Color(
-                                                                  0xFF333333),
-                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lato',
+                                                                  color: Color(
+                                                                      0xFF333333),
+                                                                ),
                                                           ),
                                                         ),
-                                                      )
+                                                      ),
                                                     ],
                                                   ),
-                                                )
+                                                ),
                                               ],
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -327,10 +343,10 @@ class _DefaultViewWidgetState extends State<DefaultViewWidget> {
                           );
                         },
                       ),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         );

@@ -1,4 +1,4 @@
-# place_app
+# placeApp
 
 A new Flutter project.
 

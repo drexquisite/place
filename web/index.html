@@ -20,13 +20,13 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="place_app">
+  <meta name="apple-mobile-web-app-title" content="placeApp">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>place_app</title>
+  <title>placeApp</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -40,22 +40,27 @@
       });
     }
   </script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  
+  
+  
 
   <script>
     const firebaseConfig = {
     apiKey: "AIzaSyDvuGR_znzX-nd2727dxkR-MO9qy2h5mrc",
-    authDomain: "place-95b4a.firebaseapp.com",
-    projectId: "place-95b4a",
-    storageBucket: "place-95b4a.appspot.com",
-    messagingSenderId: "420939199161",
-    appId: "1:420939199161:web:3f45a713e1b269e59c2168",
-    measurementId: "G-MGYPN7QMBG"
-  }
+      authDomain: "place-95b4a.firebaseapp.com",
+      projectId: "place-95b4a",
+      storageBucket: "place-95b4a.appspot.com",
+      messagingSenderId: "420939199161",
+      appId: "1:420939199161:web:3f45a713e1b269e59c2168",
+      measurementId: "G-MGYPN7QMBG"
+    }
     firebase.initializeApp(firebaseConfig);
   </script>
+  
   
   <script src="main.dart.js" type="application/javascript"></script>
 </body>

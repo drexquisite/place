@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'lat_lng.dart';
 
-@immutable
 class FFPlace {
   const FFPlace({
     this.latLng = const LatLng(0.0, 0.0),

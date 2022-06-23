@@ -1,6 +1,3 @@
-import 'package:flutter/foundation.dart';
-
-@immutable
 class LatLng {
   const LatLng(this.latitude, this.longitude);
   final double latitude;
@@ -8,6 +5,8 @@ class LatLng {
 
   @override
   String toString() => 'LatLng(lat: $latitude, lng: $longitude)';
+
+  String serialize() => '$latitude,$longitude';
 
   @override
   int get hashCode => latitude.hashCode + longitude.hashCode;

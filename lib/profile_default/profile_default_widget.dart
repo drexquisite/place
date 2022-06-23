@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileDefaultWidget extends StatefulWidget {
-  ProfileDefaultWidget({Key key}) : super(key: key);
+  const ProfileDefaultWidget({Key key}) : super(key: key);
 
   @override
   _ProfileDefaultWidgetState createState() => _ProfileDefaultWidgetState();
@@ -52,7 +52,7 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                       color: Colors.white,
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -60,7 +60,8 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                                 child: Container(
                                   width: 76,
                                   height: 76,
@@ -73,10 +74,8 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                   ),
                                 ),
                               ),
-                              Visibility(
-                                visible: profileDefaultUsersRecord.isVerified ??
-                                    true,
-                                child: StreamBuilder<UsersRecord>(
+                              if (profileDefaultUsersRecord.isVerified ?? true)
+                                StreamBuilder<UsersRecord>(
                                   stream: UsersRecord.getDocument(
                                       currentUserReference),
                                   builder: (context, snapshot) {
@@ -95,17 +94,18 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                     final iconUsersRecord = snapshot.data;
                                     return Icon(
                                       Icons.verified,
-                                      color: FlutterFlowTheme.primaryColor,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
                                       size: 24,
                                     );
                                   },
                                 ),
-                              ),
                               Expanded(
                                 child: Align(
-                                  alignment: Alignment(0.85, 0),
+                                  alignment: AlignmentDirectional(0.85, 0),
                                   child: Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 12, 0, 0),
                                     child: Icon(
                                       Icons.edit_outlined,
                                       color: Color(0xFF95A1AC),
@@ -113,47 +113,53 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: Text(
                                   profileDefaultUsersRecord.fullName,
-                                  style: FlutterFlowTheme.title1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .title1
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0xFF090F13),
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: Text(
                                   'Looking to Rent',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF8E55DE),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0xFF8E55DE),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               Column(
@@ -163,19 +169,20 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(24, 12, 0, 12),
+                        padding: EdgeInsetsDirectional.fromSTEB(24, 12, 0, 12),
                         child: Text(
                           'Account Settings',
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lato',
-                            color: Color(0xFF090F13),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF090F13),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
               Expanded(
@@ -197,34 +204,37 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                                 child: Text(
                                   'Past House Posts',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lato',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lato',
+                                        color: Color(0xFF090F13),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                 ),
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: Alignment(0.9, 0),
+                                  alignment: AlignmentDirectional(0.9, 0),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: Color(0xFF95A1AC),
                                     size: 18,
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -239,35 +249,38 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 0, 0),
                                   child: Text(
                                     'Settings',
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lato',
-                                      color: Color(0xFF090F13),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lato',
+                                          color: Color(0xFF090F13),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: Alignment(0.9, 0),
+                                    alignment: AlignmentDirectional(0.9, 0),
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: Color(0xFF95A1AC),
                                       size: 18,
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -282,35 +295,38 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 0, 0),
                                   child: Text(
                                     'Notifications',
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lato',
-                                      color: Color(0xFF090F13),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lato',
+                                          color: Color(0xFF090F13),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: Alignment(0.9, 0),
+                                    alignment: AlignmentDirectional(0.9, 0),
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: Color(0xFF95A1AC),
                                       size: 18,
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 1, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -325,35 +341,38 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24, 0, 0, 0),
                                   child: Text(
                                     'Change Password',
-                                    style: FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lato',
-                                      color: Color(0xFF090F13),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lato',
+                                          color: Color(0xFF090F13),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: Alignment(0.9, 0),
+                                    alignment: AlignmentDirectional(0.9, 0),
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: Color(0xFF95A1AC),
                                       size: 18,
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -373,12 +392,14 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               width: 120,
                               height: 40,
                               color: Colors.white,
-                              textStyle: FlutterFlowTheme.bodyText2.override(
-                                fontFamily: 'Lato',
-                                color: Color(0xFF8E55DE),
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                              ),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
+                                    fontFamily: 'Lato',
+                                    color: Color(0xFF8E55DE),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                               elevation: 2,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
@@ -386,13 +407,13 @@ class _ProfileDefaultWidgetState extends State<ProfileDefaultWidget> {
                               ),
                               borderRadius: 8,
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         );

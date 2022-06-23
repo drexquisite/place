@@ -32,14 +32,18 @@ abstract class UserTypeRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<UserTypeRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   UserTypeRecord._();
   factory UserTypeRecord([void Function(UserTypeRecordBuilder) updates]) =
       _$UserTypeRecord;
 
   static UserTypeRecord getDocumentFromData(
           Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(
-          serializer, {...data, kDocumentReferenceField: reference});
+      serializers.deserializeWith(serializer,
+          {...mapFromFirestore(data), kDocumentReferenceField: reference});
 }
 
 Map<String, dynamic> createUserTypeRecordData() => serializers.toFirestore(
