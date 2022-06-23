@@ -1,6 +1,6 @@
 # placeApp
 
-An application built for both iOS and Android. 
+An application built for both iOS and Android. Think AirBnB but for landlords and tenants. 
 
 ## Getting Started
 
